@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# My Showcase Project
 
-## Getting Started
+This project is a personal portfolio built with **Next.js** and **TailwindCSS** to showcase my skills, projects, and CV. It includes various sections like:
 
-First, run the development server:
+- **About Me**: A brief introduction and my journey into IT.
+- **Skills**: A list of technical and interpersonal skills I have acquired over time.
+- **Projects**: Featured projects I've worked on, including an AI-powered movie recommendation system and a co-created Unity game.
+- **CV**: Downloadable resume with details about my education and professional experience.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Responsive Design**: Fully optimized for all device sizes.
+- **Animations**: Smooth animations for a better user experience, implemented using Framer Motion.
+- **CV Download**: Users can download my resume directly from the website.
+- **Interactive Projects**: Project cards link to the source code on GitHub or other platforms.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Inspiration
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The backbone of this project was inspired by the excellent work of [Mif2006](https://github.com/Mif2006). I have adapted and extended it to fit my own needs and personal style.
 
-## Learn More
+## How to Run Locally
 
-To learn more about Next.js, take a look at the following resources:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Lip1200/my-showcase.git
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is licensed under the MIT License. Feel free to use, modify, or distribute it as needed.
