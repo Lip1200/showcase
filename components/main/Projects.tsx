@@ -11,7 +11,6 @@ const Projects = () => {
         My Projects
       </h1>
 
-      {/* Utilisation de grid avec des colonnes flexibles */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 px-10">
         <ProjectCard
           src="/colormovie.png"
@@ -32,6 +31,13 @@ This app is a second-year Bachelor's project and is composed of two main service
           title="Unity Game"
           description="Co-creation of a networked game using Unity. The game supports multiple players connected via a network, demonstrating complex real-time interactions and synchronization between clients."
           link="https://gitlab.unige.ch/stm_game/game"
+        />
+
+        <ProjectCard
+          src="/portfolio.png"
+          title="Portfolio"
+          description="This portfolio built with Next.js."
+          link="https://github.com/Lip1200/showcase" // Lien vers la section ou page du CV
         />
       </div>
     </div>
