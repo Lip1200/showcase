@@ -5,8 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "next-sitemap",
     "start": "next start",
     "export": "next export",
+    "postexport": "next-sitemap && cp public/sitemap* out/ && cp public/robots.txt out/",
     "lint": "next lint"
   },
   "dependencies": {
@@ -15,6 +17,7 @@
     "@heroicons/react": "^2.0.18",
     "glob": "^11.0.0",
     "next": "^14.2.15",
+    "next-sitemap": "^4.2.3",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^4.11.0",
