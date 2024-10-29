@@ -3,6 +3,7 @@ import Projects from "@/components/main/Projects";
 import Skills from "@/components/main/Skills";
 import CV from "@/components/main/cv";
 import Image from "next/image";
+import React from "react";
 
 export default function Home() {
   return (
