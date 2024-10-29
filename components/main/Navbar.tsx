@@ -38,11 +38,12 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Remplacement des icônes sociales */}
+        {/* Ajout des labels aux icônes sociales */}
         <div className="flex flex-row gap-5">
           <a
-            href="mailto:***REMOVED***" // Lien vers le mail
+            href="mailto:***REMOVED***"
             className="cursor-pointer text-gray-300 hover:text-gray-100 transition-colors"
+            aria-label="Email"
           >
             <FaEnvelope size={24} />
           </a>
@@ -51,6 +52,7 @@ const Navbar = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="cursor-pointer text-gray-300 hover:text-gray-100 transition-colors"
+            aria-label="LinkedIn"
           >
             <RxLinkedinLogo size={24} />
           </a>
@@ -59,6 +61,7 @@ const Navbar = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="cursor-pointer text-gray-300 hover:text-gray-100 transition-colors"
+            aria-label="GitHub"
           >
             <RxGithubLogo size={24} />
           </a>
@@ -67,6 +70,7 @@ const Navbar = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="cursor-pointer text-gray-300 hover:text-gray-100 transition-colors"
+            aria-label="GitLab"
           >
             <FaGitlab size={24} />
           </a>

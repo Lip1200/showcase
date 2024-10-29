@@ -21,7 +21,7 @@ const HeroContent = () => {
       <div className="h-full w-full flex flex-col gap-5 justify-center m-auto text-start">
         <motion.div
           variants={slideInFromTop}
-          className="Welcome-box py-[8px] px-[7px] border border-[#7042f88b] opacity-[0.9]"
+          className="Welcome-box py-[8px] px-[7px] border border-[#7042f88b] opacity-[0.9] flex items-center"
         >
           <SparklesIcon className="text-[#b49bff] mr-[10px] h-5 w-5" />
           <h1 className="Welcome-text text-[13px]">IT Specialist &nbsp;</h1>
@@ -29,7 +29,7 @@ const HeroContent = () => {
 
         <motion.div
           variants={slideInFromLeft(0.5)}
-          className="flex flex-col gap-6 mt-6 text-6xl font-bold text-white max-w-[600px] w-auto h-auto"
+          className="flex flex-col gap-6 mt-6 text-6xl font-bold text-white max-w-[600px] w-auto"
         >
           <span>
             Shaping tomorrow's
@@ -57,7 +57,7 @@ const HeroContent = () => {
             whileInView="visible"
             initial="hidden"
             viewport={{ once: true, amount: 0.2 }}
-            className="py-2 px-5 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px] "
+            className="py-2 px-5 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px]"
           >
             <Link
               href="#cv"
@@ -92,13 +92,13 @@ const HeroContent = () => {
         variants={slideInFromRight(0.8)}
         className="w-full h-full flex justify-center items-center"
       >
-        <div className="w-[50%] max-w-[300px]">
+        <div className="relative w-[50%] max-w-[300px] h-[300px]">
           <Image
             src="/QrCode.svg"
             alt="work icons"
-            layout="responsive"
-            width={300}
-            height={300}
+            fill
+            sizes="(max-width: 768px) 100vw, 300px"
+            className="object-contain"
           />
         </div>
       </motion.div>
