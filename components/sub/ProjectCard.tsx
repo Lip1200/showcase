@@ -5,10 +5,10 @@ interface Props {
   src: string;
   title: string;
   description: string;
-  link: string; // Ajout de la propriété link pour rediriger vers GitHub
+  link: string;
 }
 
-const ProjectCard = ({ src, title, description, link }: Props) => {
+const ProjectCard: React.FC<Props> = ({ src, title, description, link }) => {
   return (
     <div className="relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61]">
       <Image
@@ -17,6 +17,8 @@ const ProjectCard = ({ src, title, description, link }: Props) => {
         width={1000}
         height={1000}
         className="w-full object-contain"
+        loading="lazy"
+        data-testid="project-image"
       />
 
       <div className="relative p-4">

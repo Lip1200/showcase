@@ -1,0 +1,136 @@
+[0m[7m[1m[32m PASS [39m[22m[27m[0m [2m__tests__/[22m[1mHome.test.js[22m
+[0m[7m[1m[31m FAIL [39m[22m[27m[0m [2m__tests__/[22m[1mSkillDataProvider.test.js[22m
+[1m[31m  [1m● [22m[1mSkillDataProvider Component › renders SkillDataProvider component with image[39m[22m
+
+    TestingLibraryElementError: Unable to find an element with the alt text: skill image
+
+    Ignored nodes: comments, script, style
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"flex justify-center items-center"[39m
+          [33mstyle[39m=[32m"opacity: 0;"[39m
+        [36m>[39m
+          [36m<img[39m
+            [33malt[39m=[32m"Test image"[39m
+            [33mclass[39m=[32m"object-contain"[39m
+            [33mdata-nimg[39m=[32m"1"[39m
+            [33mdecoding[39m=[32m"async"[39m
+            [33mheight[39m=[32m"50"[39m
+            [33mloading[39m=[32m"lazy"[39m
+            [33msrc[39m=[32m"/_next/image?url=%2Ftest-image.png&w=128&q=75"[39m
+            [33msrcset[39m=[32m"/_next/image?url=%2Ftest-image.png&w=64&q=75 1x, /_next/image?url=%2Ftest-image.png&w=128&q=75 2x"[39m
+            [33mstyle[39m=[32m"color: transparent;"[39m
+            [33mwidth[39m=[32m"50"[39m
+          [36m/>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</body>[39m
+[2m[22m
+[2m    [0m [90m 27 |[39m       [33m/[39m[33m>[39m[33m,[39m[22m
+[2m     [90m 28 |[39m     )[33m;[39m[22m
+[2m    [31m[1m>[22m[2m[39m[90m 29 |[39m     [36mconst[39m skillImage [33m=[39m screen[33m.[39mgetByAltText([32m"skill image"[39m)[33m;[39m[22m
+[2m     [90m    |[39m                               [31m[1m^[22m[2m[39m[22m
+[2m     [90m 30 |[39m     expect(skillImage)[33m.[39mtoBeInTheDocument()[33m;[39m[22m
+[2m     [90m 31 |[39m   })[33m;[39m[22m
+[2m     [90m 32 |[39m })[33m;[39m[0m[22m
+[2m[22m
+[2m      [2mat Object.getElementError ([22m[2mnode_modules/@testing-library/dom/dist/config.js[2m:37:19)[22m[2m[22m
+[2m      [2mat [22m[2mnode_modules/@testing-library/dom/dist/query-helpers.js[2m:76:38[22m[2m[22m
+[2m      [2mat [22m[2mnode_modules/@testing-library/dom/dist/query-helpers.js[2m:52:17[22m[2m[22m
+[2m      [2mat [22m[2mnode_modules/@testing-library/dom/dist/query-helpers.js[2m:95:19[22m[2m[22m
+[2m      [2mat Object.getByAltText ([22m[2m[0m[36m__tests__/SkillDataProvider.test.js[39m[0m[2m:29:31)[22m[2m[22m
+
+[0m[7m[1m[32m PASS [39m[22m[27m[0m [2m__tests__/[22m[1mProjects.test.js[22m
+[0m[7m[1m[32m PASS [39m[22m[27m[0m [2m__tests__/[22m[1mStarsCanvas.test.js[22m
+  [1m● [22mConsole
+
+    [2m[31mconsole.error[39m[22m
+[31m      Warning: The tag <mesh> is unrecognized in this browser. If you meant to render a React component, start its name with an uppercase letter.[39m
+[31m          at mesh[39m
+[31m          at StarBackground (/Users/Filipe/IT/my-showcase/components/main/StarBackground.tsx:9:21)[39m
+[31m          at Suspense[39m
+[31m          at div[39m
+[31m          at children (/Users/Filipe/IT/my-showcase/__tests__/StarsCanvas.test.js:8:14)[39m
+[31m          at div[39m
+[31m          at StarsCanvas[39m
+[2m[22m
+[2m    [0m [90m 30 |[39m describe([32m"StarsCanvas Component"[39m[33m,[39m () [33m=>[39m {[22m
+[2m     [90m 31 |[39m   it([32m"renders without crashing"[39m[33m,[39m () [33m=>[39m {[22m
+[2m    [31m[1m>[22m[2m[39m[90m 32 |[39m     [36mconst[39m { container } [33m=[39m render([33m<[39m[33mStarsCanvas[39m [33m/[39m[33m>[39m)[33m;[39m[22m
+[2m     [90m    |[39m                                 [31m[1m^[22m[2m[39m[22m
+[2m     [90m 33 |[39m     expect(container)[33m.[39mtoBeInTheDocument()[33m;[39m[22m
+[2m     [90m 34 |[39m   })[33m;[39m[22m
+[2m     [90m 35 |[39m[0m[22m
+[2m[22m
+[2m      [2mat printWarning ([22m[2mnode_modules/react-dom/cjs/react-dom.development.js[2m:86:30)[22m[2m[22m
+[2m      [2mat error ([22m[2mnode_modules/react-dom/cjs/react-dom.development.js[2m:60:7)[22m[2m[22m
+[2m      [2mat createElement ([22m[2mnode_modules/react-dom/cjs/react-dom.development.js[2m:9816:9)[22m[2m[22m
+[2m      [2mat createInstance ([22m[2mnode_modules/react-dom/cjs/react-dom.development.js[2m:10941:20)[22m[2m[22m
+[2m      [2mat completeWork ([22m[2mnode_modules/react-dom/cjs/react-dom.development.js[2m:22226:28)[22m[2m[22m
+[2m      [2mat completeUnitOfWork ([22m[2mnode_modules/react-dom/cjs/react-dom.development.js[2m:26632:16)[22m[2m[22m
+[2m      [2mat performUnitOfWork ([22m[2mnode_modules/react-dom/cjs/react-dom.development.js[2m:26607:5)[22m[2m[22m
+[2m      [2mat workLoopSync ([22m[2mnode_modules/react-dom/cjs/react-dom.development.js[2m:26505:5)[22m[2m[22m
+[2m      [2mat renderRootSync ([22m[2mnode_modules/react-dom/cjs/react-dom.development.js[2m:26473:7)[22m[2m[22m
+[2m      [2mat performConcurrentWorkOnRoot ([22m[2mnode_modules/react-dom/cjs/react-dom.development.js[2m:25777:74)[22m[2m[22m
+[2m      [2mat flushActQueue ([22m[2mnode_modules/react/cjs/react.development.js[2m:2667:24)[22m[2m[22m
+[2m      [2mat act ([22m[2mnode_modules/react/cjs/react.development.js[2m:2582:11)[22m[2m[22m
+[2m      [2mat [22m[2mnode_modules/@testing-library/react/dist/act-compat.js[2m:47:25[22m[2m[22m
+[2m      [2mat renderRoot ([22m[2mnode_modules/@testing-library/react/dist/pure.js[2m:180:26)[22m[2m[22m
+[2m      [2mat render ([22m[2mnode_modules/@testing-library/react/dist/pure.js[2m:271:10)[22m[2m[22m
+[2m      [2mat Object.<anonymous> ([22m[2m[0m[36m__tests__/StarsCanvas.test.js[39m[0m[2m:32:33)[22m[2m[22m
+
+    [2m[31mconsole.error[39m[22m
+[31m      Warning: Received `true` for a non-boolean attribute `all`.[39m
+[31m      [39m
+[31m      If you want to write it to the DOM, pass a string instead: all="true" or all={value.toString()}.[39m
+[31m          at div[39m
+[31m          at div[39m
+[31m          at children (/Users/Filipe/IT/my-showcase/__tests__/StarsCanvas.test.js:8:14)[39m
+[31m          at div[39m
+[31m          at StarsCanvas[39m
+[2m[22m
+[2m    [0m [90m 30 |[39m describe([32m"StarsCanvas Component"[39m[33m,[39m () [33m=>[39m {[22m
+[2m     [90m 31 |[39m   it([32m"renders without crashing"[39m[33m,[39m () [33m=>[39m {[22m
+[2m    [31m[1m>[22m[2m[39m[90m 32 |[39m     [36mconst[39m { container } [33m=[39m render([33m<[39m[33mStarsCanvas[39m [33m/[39m[33m>[39m)[33m;[39m[22m
+[2m     [90m    |[39m                                 [31m[1m^[22m[2m[39m[22m
+[2m     [90m 33 |[39m     expect(container)[33m.[39mtoBeInTheDocument()[33m;[39m[22m
+[2m     [90m 34 |[39m   })[33m;[39m[22m
+[2m     [90m 35 |[39m[0m[22m
+[2m[22m
+[2m      [2mat printWarning ([22m[2mnode_modules/react-dom/cjs/react-dom.development.js[2m:86:30)[22m[2m[22m
+[2m      [2mat error ([22m[2mnode_modules/react-dom/cjs/react-dom.development.js[2m:60:7)[22m[2m[22m
+[2m      [2mat validateProperty$1 ([22m[2mnode_modules/react-dom/cjs/react-dom.development.js[2m:3765:9)[22m[2m[22m
+[2m      [2mat warnUnknownProperties ([22m[2mnode_modules/react-dom/cjs/react-dom.development.js[2m:3803:21)[22m[2m[22m
+[2m      [2mat validateProperties$2 ([22m[2mnode_modules/react-dom/cjs/react-dom.development.js[2m:3827:3)[22m[2m[22m
+[2m      [2mat validatePropertiesInDevelopment ([22m[2mnode_modules/react-dom/cjs/react-dom.development.js[2m:9541:5)[22m[2m[22m
+[2m      [2mat setInitialProperties ([22m[2mnode_modules/react-dom/cjs/react-dom.development.js[2m:9830:5)[22m[2m[22m
+[2m      [2mat finalizeInitialChildren ([22m[2mnode_modules/react-dom/cjs/react-dom.development.js[2m:10950:3)[22m[2m[22m
+[2m      [2mat completeWork ([22m[2mnode_modules/react-dom/cjs/react-dom.development.js[2m:22232:17)[22m[2m[22m
+[2m      [2mat completeUnitOfWork ([22m[2mnode_modules/react-dom/cjs/react-dom.development.js[2m:26632:16)[22m[2m[22m
+[2m      [2mat performUnitOfWork ([22m[2mnode_modules/react-dom/cjs/react-dom.development.js[2m:26607:5)[22m[2m[22m
+[2m      [2mat workLoopSync ([22m[2mnode_modules/react-dom/cjs/react-dom.development.js[2m:26505:5)[22m[2m[22m
+[2m      [2mat renderRootSync ([22m[2mnode_modules/react-dom/cjs/react-dom.development.js[2m:26473:7)[22m[2m[22m
+[2m      [2mat performConcurrentWorkOnRoot ([22m[2mnode_modules/react-dom/cjs/react-dom.development.js[2m:25777:74)[22m[2m[22m
+[2m      [2mat flushActQueue ([22m[2mnode_modules/react/cjs/react.development.js[2m:2667:24)[22m[2m[22m
+[2m      [2mat act ([22m[2mnode_modules/react/cjs/react.development.js[2m:2582:11)[22m[2m[22m
+[2m      [2mat [22m[2mnode_modules/@testing-library/react/dist/act-compat.js[2m:47:25[22m[2m[22m
+[2m      [2mat renderRoot ([22m[2mnode_modules/@testing-library/react/dist/pure.js[2m:180:26)[22m[2m[22m
+[2m      [2mat render ([22m[2mnode_modules/@testing-library/react/dist/pure.js[2m:271:10)[22m[2m[22m
+[2m      [2mat Object.<anonymous> ([22m[2m[0m[36m__tests__/StarsCanvas.test.js[39m[0m[2m:32:33)[22m[2m[22m
+
+[0m[7m[1m[32m PASS [39m[22m[27m[0m [2m__tests__/[22m[1mHeroContent.test.js[22m
+[0m[7m[1m[32m PASS [39m[22m[27m[0m [2m__tests__/[22m[1mSkillText.test.js[22m
+[0m[7m[1m[32m PASS [39m[22m[27m[0m [2m__tests__/[22m[1mHero.test.js[22m
+[0m[7m[1m[32m PASS [39m[22m[27m[0m [2m__tests__/[22m[1mProjectCard.test.js[22m
+[0m[7m[1m[32m PASS [39m[22m[27m[0m [2m__tests__/[22m[1mcv.test.js[22m
+[0m[7m[1m[32m PASS [39m[22m[27m[0m [2m__tests__/[22m[1mNavbar.test.js[22m
+[0m[7m[1m[32m PASS [39m[22m[27m[0m [2m__tests__/[22m[1mCVContent.test.js[22m
+[0m[7m[1m[32m PASS [39m[22m[27m[0m [2m__tests__/[22m[1mSkills.test.js[22m
+[0m[7m[1m[32m PASS [39m[22m[27m[0m [2m__tests__/[22m[1mFooter.test.js[22m
+
+[1mTest Suites: [22m[1m[31m1 failed[39m[22m, [1m[32m12 passed[39m[22m, 13 total
+[1mTests:       [22m[1m[31m1 failed[39m[22m, [1m[32m39 passed[39m[22m, 40 total
+[1mSnapshots:   [22m0 total
+[1mTime:[22m        1.527 s, estimated 2 s
+[2mRan all test suites[22m[2m.[22m
