@@ -37,7 +37,7 @@ const Skills = () => {
               src={image.Image}
               width={image.width}
               height={image.height}
-              alt={image.alt || "description of the skill image"}
+              alt={image.alt || image.Image}
               index={index}
             />
           ))}
