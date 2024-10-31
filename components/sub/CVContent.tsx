@@ -75,7 +75,7 @@ const CVContent = () => {
               Education
             </h2>
             <p className="text-lg text-gray-300 w-full">
-              Bachelor's Degree in Information Systems and Service Science
+              Bachelor&apos;s Degree in Information Systems and Service Science
               (Expected 2025)
             </p>
             <p className="text-lg text-gray-300 w-full">
