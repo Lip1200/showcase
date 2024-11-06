@@ -5,6 +5,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial, Preload } from "@react-three/drei";
 import * as random from "maath/random/dist/maath-random.esm";
 import { Points as ThreePoints } from "three";
+import { Group } from "three";
 
 interface StarBackgroundProps {
   [key: string]: unknown;
