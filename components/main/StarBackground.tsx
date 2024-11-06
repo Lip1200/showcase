@@ -1,11 +1,10 @@
 "use client";
 
-import React, { useState, useRef, Suspense, RefObject } from "react";
+import React, { useState, useRef, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial, Preload } from "@react-three/drei";
 import * as random from "maath/random/dist/maath-random.esm";
-import { Points as ThreePoints } from "three";
-import { Group } from "three";
+import { Group, Points as ThreePoints } from "three";
 
 interface StarBackgroundProps {
   [key: string]: unknown;
@@ -27,7 +26,7 @@ const StarBackground: React.FC<StarBackgroundProps> = (props) => {
   return (
     <group rotation={[0, 0, Math.PI / 4]}>
       <Points
-        ref={ref as RefObject<ThreePoints>}
+        ref={ref as unknown as React.MutableRefObject<ThreePoints>}
         positions={sphere}
         stride={3}
         frustumCulled
