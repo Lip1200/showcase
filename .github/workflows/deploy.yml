@@ -1,4 +1,4 @@
-name: Deploy to Infomaniak via FTP
+name: 🚀 Deploy to Infomaniak via rsync over SSH
 
 on:
   push:
@@ -8,22 +8,45 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
+    env:
+      SSH_USER: ${{ secrets.SSH_USER }}
+      DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+      DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+
     steps:
-      - name: Checkout code
-        run: |
-          git clone ${{ secrets.REPO_URL }} .
+      - name: 🧾 Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
-      - name: Setup PHP
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y php-cli php-mbstring unzip curl
-          php -v
+      - name: 🔐 Setup SSH Agent
+        uses: webfactory/ssh-agent@v0.8.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: Check PHP syntax
+      - name: 📡 Add SSH host to known_hosts
         run: |
-          find . -name "*.php" -type f -print0 | xargs -0 -n1 php -l
+          mkdir -p ~/.ssh
+          ssh-keyscan -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts
 
-      - name: Deploy via FTP
+      - name: 📤 Deploy with rsync
         run: |
-          sudo apt-get install -y lftp
-          lftp -e "set ftp:ssl-allow no; mirror -R ./ ${{ secrets.DEPLOY_PATH }}; bye" -u ${{ secrets.SSH_USER }},${{ secrets.SSH_PRIVATE_KEY }} ${{ secrets.DEPLOY_HOST }}
+          rsync -avz --delete \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='node_modules' \
+            --exclude='.gitignore' \
+            --exclude='README.md' \
+            ./ "$SSH_USER@$DEPLOY_HOST:$DEPLOY_PATH"
+        env:
+          SSH_AUTH_SOCK: ${{ env.SSH_AUTH_SOCK }}
+
+      - name: 🔧 Set proper permissions
+        run: |
+          ssh $SSH_USER@$DEPLOY_HOST "
+            find $DEPLOY_PATH -type d -exec chmod 755 {} \; &&
+            find $DEPLOY_PATH -type f -exec chmod 644 {} \; &&
+            touch $DEPLOY_PATH/index.php
+          "
+        env:
+          SSH_AUTH_SOCK: ${{ env.SSH_AUTH_SOCK }}
