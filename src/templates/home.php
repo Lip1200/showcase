@@ -27,6 +27,11 @@
     <?php include_once BASE_PATH . '/src/components/cv.php'; ?>
 </div>
 
+<!-- Deployment Test Section -->
+<div id="deployment-test">
+    <?php include_once BASE_PATH . '/src/components/deployment_test.php'; ?>
+</div>
+
 <!-- Animation Script -->
 <script src="<?php echo BASE_URL; ?>/assets/js/animation.js"></script>
 
