@@ -10,8 +10,6 @@ global $config;
     <div class="w-full flex flex-col items-center justify-center m-auto">
         <!-- About Section -->
         <div class="min-w-[200px] h-auto flex flex-col items-center justify-start">
-            <div class="font-bold text-[16px]">About Me - Deployment Test</div>
-
             <!-- Social Icons with Labels -->
             <div class="flex flex-row items-center justify-center space-x-6 my-[15px]">
                 <!-- LinkedIn -->
