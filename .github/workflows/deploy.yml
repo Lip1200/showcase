@@ -8,38 +8,22 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
-    env:
-      FTP_SERVER: ${{ secrets.DEPLOY_HOST }}
-      FTP_USERNAME: ${{ secrets.SSH_USER }}
-      FTP_PASSWORD: ${{ secrets.SSH_PRIVATE_KEY }}
-
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+        run: |
+          git clone ${{ secrets.REPO_URL }} .
 
       - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.1'
-          tools: php-cs-fixer, phpunit
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y php-cli php-mbstring unzip curl
+          php -v
 
       - name: Check PHP syntax
         run: |
           find . -name "*.php" -type f -print0 | xargs -0 -n1 php -l
 
       - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@4.3.0
-        with:
-          server: ${{ env.FTP_SERVER }}
-          username: ${{ env.FTP_USERNAME }}
-          password: ${{ env.FTP_PASSWORD }}
-          local-dir: ./
-          server-dir: ${{ secrets.DEPLOY_PATH }}
-          exclude: |
-            .git*
-            .github*
-            node_modules*
-            README.md
-            .gitignore
+        run: |
+          sudo apt-get install -y lftp
+          lftp -e "set ftp:ssl-allow no; mirror -R ./ ${{ secrets.DEPLOY_PATH }}; bye" -u ${{ secrets.SSH_USER }},${{ secrets.SSH_PRIVATE_KEY }} ${{ secrets.DEPLOY_HOST }}
