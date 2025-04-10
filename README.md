@@ -3,7 +3,7 @@
 A PHP version of Filipe's portfolio website, converted from the original Next.js implementation. This project features a clean, responsive design with animated sections showcasing skills, projects, and professional experience.
 
 ## Inspiration
-The backbone of this project was inspired by the excellent work of Mif2006. I have adapted and extended it to fit my own needs and personal style.
+The backbone of this project was inspired by the excellent work of [Mif2006](https://github.com/Mif2006). I have adapted and extended it to fit my own needs and personal style.
 
 ## Features
 
