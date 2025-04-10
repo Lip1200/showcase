@@ -22,7 +22,7 @@ $delay = 300 * $index;
 
 <div class="animate-item animate-slide-bottom animate-on-scroll flex justify-center items-center"
      style="transition-delay: <?php echo $delay; ?>ms;">
-    <div class="flex flex-col items-center justify-center rounded-full h-[120px] w-[120px] bg-[#0300145e] border border-[#7042f861] m-[10px] cursor-pointer group relative hover:border-[#7042f8] transition-all duration-300">
+    <div class="flex flex-col items-center justify-center rounded-full h-[120px] w-[120px] bg-[#0300145e] border border-[#7042f861] m-[5px] cursor-pointer group relative hover:border-[#7042f8] transition-all duration-300">
         
         <!-- Skill Icon -->
         <img 

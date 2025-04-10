@@ -12,7 +12,7 @@ global $config;
             <!-- Welcome Box with Icon -->
             <div class="animate-item animate-slide-top Welcome-box py-[8px] px-[7px] border border-[#7042f88b] opacity-[0.9] flex items-center rounded-full">
                 <img src="<?php echo BASE_URL; ?>/assets/images/icons/star.svg" alt="star icon" class="text-[#b49bff] mr-[10px] h-5 w-5" />
-                <h1 class="Welcome-text text-[13px]">IT Specialist &nbsp;</h1>
+                <h1 class="Welcome-text text-[13px]"> Full Stack Developer | AI & Data Engineering Enthusiast &nbsp;</h1>
             </div>
 
             <!-- Main Heading -->
