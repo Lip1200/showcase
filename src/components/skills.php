@@ -9,7 +9,7 @@
 require_once BASE_PATH . '/src/includes/skill_data.php';
 ?>
 
-<section class="flex flex-col items-center justify-center gap-3 h-full relative overflow-hidden pb-20 py-10" style="transform: scale(0.9)">
+<section class="flex flex-col items-center justify-center gap-3 h-full relative overflow-hidden pb-20 py-10">
     <!-- Skills Header -->
     <div class="w-full h-auto flex flex-col items-center justify-center">
         <div class="animate-item animate-slide-top animate-on-scroll Welcome-box py-[8px] px-[7px] border border-[#7042f88b] opacity-[0.9] inline-flex items-center rounded-full">
@@ -21,7 +21,7 @@ require_once BASE_PATH . '/src/includes/skill_data.php';
             Diving into the future, fueled by a love for exploring new tech.
         </div>
         
-        <div class="animate-item animate-slide-right animate-on-scroll animate-delay-500 text-[20px] text-gray-200 mb-10 mt-[10px] text-center">
+        <div class="animate-item animate-slide-right animate-on-scroll animate-delay-500 text-[28px] text-gray-200 mb-10 mt-[10px] text-center" style="font-family: 'Dancing Script', cursive; font-weight: 700;">
             My go-to skills
         </div>
     </div>
@@ -30,7 +30,7 @@ require_once BASE_PATH . '/src/includes/skill_data.php';
     <?php foreach ($skill_categories as $categoryIndex => $category): ?>
         <div class="w-full">
             <!-- Skills Grid - Note: Category titles are hidden as per original Next.js design -->
-            <div class="flex flex-row justify-around flex-wrap mt-4 gap-5 items-center">
+            <div class="flex flex-row justify-center flex-wrap mt-4 gap-1 items-center">
                 <?php foreach ($category['skills'] as $index => $skill): ?>
                     <?php 
                     // Include the skill card component

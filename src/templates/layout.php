@@ -43,10 +43,14 @@ $pageTitle = $currentSection['title'] . ' - ' . $config['site']['title'];
         }
     </script>
     
-    <!-- Font - Inter from Google Fonts -->
+    <!-- Fonts -->
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/tailwind.css">
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/styles.css">
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/main.css">
+    <!-- Adding Dancing Script for handwritten style text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
