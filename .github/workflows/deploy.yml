@@ -1,4 +1,4 @@
-name: Deploy to Infomaniak via SSH
+name: Deploy to Infomaniak via FTP
 
 on:
   push:
@@ -9,9 +9,9 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      SSH_USER: ${{ secrets.SSH_USER }}
-      DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
-      DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+      FTP_SERVER: ${{ secrets.DEPLOY_HOST }}
+      FTP_USERNAME: ${{ secrets.SSH_USER }}
+      FTP_PASSWORD: ${{ secrets.SSH_PRIVATE_KEY }}
 
     steps:
       - name: Checkout code
@@ -29,31 +29,17 @@ jobs:
         run: |
           find . -name "*.php" -type f -print0 | xargs -0 -n1 php -l
 
-      - name: Setup SSH Agent
-        uses: webfactory/ssh-agent@v0.8.0
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      - name: Deploy and set permissions
-        run: |
-          mkdir -p ~/.ssh
-          ssh-keyscan -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts
-
-          echo "🔁 Déploiement avec rsync..."
-          rsync -avz --delete \
-            --exclude='.git' \
-            --exclude='.github' \
-            --exclude='node_modules' \
-            --exclude='.gitignore' \
-            --exclude='README.md' \
-            --chmod=Du=rwx,Dg=rx,Do=rx,Fu=rw,Fg=r,Fo=r \
-            ./ $SSH_USER@$DEPLOY_HOST:$DEPLOY_PATH
-
-          echo "🔧 Normalisation des permissions..."
-          ssh $SSH_USER@$DEPLOY_HOST "
-            find $DEPLOY_PATH -type d -exec chmod 755 {} \; &&
-            find $DEPLOY_PATH -type f -exec chmod 644 {} \; &&
-            touch $DEPLOY_PATH/index.php
-          "
-        env:
-          SSH_AUTH_SOCK: ${{ env.SSH_AUTH_SOCK }}
+          server: ${{ env.FTP_SERVER }}
+          username: ${{ env.FTP_USERNAME }}
+          password: ${{ env.FTP_PASSWORD }}
+          local-dir: ./
+          server-dir: ${{ secrets.DEPLOY_PATH }}
+          exclude: |
+            .git*
+            .github*
+            node_modules*
+            README.md
+            .gitignore
