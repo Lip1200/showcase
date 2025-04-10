@@ -1,0 +1,46 @@
+name: Deploy to Apache/PHP Web Server
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          tools: php-cs-fixer, phpunit
+
+      - name: Check PHP syntax
+        run: |
+          find . -name "*.php" -type f -print0 | xargs -0 -n1 php -l
+
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.8.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Deploy to Apache/PHP server
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H 83.166.133.85 >> ~/.ssh/known_hosts
+          rsync -avz --delete \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='node_modules' \
+            --exclude='.gitignore' \
+            --exclude='README.md' \
+            --chmod=Du=rwx,Dg=rx,Do=rx,Fu=rw,Fg=r,Fo=r \
+            ./ 2z26ex_lip1200@83.166.133.85:~/sites/ramosf.tech/
+          
+      - name: Set proper permissions and clear cache
+        run: |
+          ssh 2z26ex_lip1200@83.166.133.85 "find ~/sites/ramosf.tech -type d -exec chmod 755 {} \; && find ~/sites/ramosf.tech -type f -exec chmod 644 {} \; && touch ~/sites/ramosf.tech/index.php"
