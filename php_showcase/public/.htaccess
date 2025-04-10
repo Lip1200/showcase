@@ -1,0 +1,11 @@
+# Enable PDF mime type
+AddType application/pdf .pdf
+
+# Allow access to PDF files
+<Files "*.pdf">
+    Require all granted
+</Files>
+
+# Prevent directory listing
+Options -Indexes
+
