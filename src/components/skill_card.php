@@ -16,12 +16,12 @@ $height = $skill['height'] ?? 80;
 $alt = $skill['alt'] ?? '';
 $name = $skill['name'] ?? $skill['skill_name'] ?? '';
 
-// Calculate animation delay based on index - 0.3s per item as in the original
-$delay = 300 * $index;
+// Calculate animation delay based on index - use a staggered approach for more visual impact
+$delay = 100 + (150 * $index); // Start at 100ms and add 150ms per item
 ?>
 
 <div class="animate-item animate-slide-bottom animate-on-scroll flex justify-center items-center"
-     style="transition-delay: <?php echo $delay; ?>ms;">
+     style="transition-delay: <?php echo $delay; ?>ms; animation-duration: 0.7s;">
     <div class="flex flex-col items-center justify-center rounded-full h-[120px] w-[120px] bg-[#0300145e] border border-[#7042f861] m-[5px] cursor-pointer group relative hover:border-[#7042f8] transition-all duration-300">
         
         <!-- Skill Icon -->
