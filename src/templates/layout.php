@@ -22,16 +22,7 @@ $pageTitle = $currentSection['title'] . ' - ' . $config['site']['title'];
     <meta name="description" content="<?php echo htmlspecialchars($config['site']['description']); ?>">
     <meta name="author" content="<?php echo htmlspecialchars($config['site']['author']); ?>">
     
-    <!-- Matomo Tag Manager -->
-<script>
-  var _mtm = window._mtm = window._mtm || [];
-  _mtm.push({'mtm.startTime': (new Date().getTime()), 'event': 'mtm.Start'});
-  (function() {
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.async=true; g.src='http://analytics.ramosf.tech/js/container_wiwLW5xU.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<!-- End Matomo Tag Manager -->
+
 
     <!-- Tailwind CSS - we're including the CDN for simplicity -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -102,6 +93,26 @@ $pageTitle = $currentSection['title'] . ' - ' . $config['site']['title'];
             -webkit-text-fill-color: transparent;
         }
     </style>
+    <!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+  _paq.push(["setCookieDomain", "*.analytics.ramosf.tech"]);
+  _paq.push(["setDomains", ["*.analytics.ramosf.tech"]]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//analytics.ramosf.tech/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img referrerpolicy="no-referrer-when-downgrade" src="//analytics.ramosf.tech/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+<!-- End Matomo Code -->
+
 </head>
 <body class="bg-dark text-white">
     <!-- Navigation Bar (Always on top) -->
