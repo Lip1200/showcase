@@ -20,7 +20,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} bg-gray-50 text-gray-900 overflow-y-scroll overflow-x-hidden`}
+        className={`${inter.className} bg-neutral overflow-y-scroll overflow-x-hidden`}
+
       >
         <div className="relative z-[30]">
           <Navbar />
