@@ -45,7 +45,7 @@ jest.mock("@/constants", () => ({
 describe("Skills Component", () => {
   it("renders without crashing", () => {
     render(<Skills />);
-    expect(screen.getByText(/My go-to skills/i)).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /skills/i })).toBeInTheDocument();
   });
 
   it("renders Skill_data images", () => {
