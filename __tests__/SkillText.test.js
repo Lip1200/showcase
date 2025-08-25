@@ -9,21 +9,17 @@ describe("SkillText Component", () => {
     expect(container).toBeInTheDocument();
   });
 
-  it("displays the quick learner message with SparklesIcon", () => {
+  it("displays the Skills heading", () => {
     render(<SkillText />);
-
-    expect(screen.getByTestId("sparkles-icon")).toBeInTheDocument();
-  });
-  it("displays the central motivational text", () => {
-    render(<SkillText />);
-    const motivationalText = screen.getByText(
-      "Diving into the future, fueled by a love for exploring new tech.",
-    );
-    expect(motivationalText).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: /skills/i })
+    ).toBeInTheDocument();
   });
 
-  it('renders the "My go-to skills" section', () => {
+  it("shows the descriptive paragraph", () => {
     render(<SkillText />);
-    expect(screen.getByText("My go-to skills")).toBeInTheDocument();
+    expect(
+      screen.getByText(/snapshot of the technologies/i)
+    ).toBeInTheDocument();
   });
 });

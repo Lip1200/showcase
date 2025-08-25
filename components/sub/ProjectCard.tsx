@@ -33,6 +33,7 @@ const ProjectCard: React.FC<Props> = ({ src, title, description, link }) => {
           </a>
         </h1>
         <p className="mt-2 text-gray-600">{description}</p>
+
       </div>
     </div>
   );
