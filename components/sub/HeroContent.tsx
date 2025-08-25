@@ -29,7 +29,7 @@ const HeroContent = () => {
 
         <motion.div
           variants={slideInFromLeft(0.5)}
-          className="flex flex-col gap-6 mt-6 text-6xl font-bold text-white max-w-[600px] w-auto"
+          className="flex flex-col gap-6 mt-6 text-6xl font-bold text-gray-900 max-w-[600px] w-auto"
         >
           <span>
             Shaping tomorrow&apos;s
@@ -43,7 +43,7 @@ const HeroContent = () => {
 
         <motion.p
           variants={slideInFromLeft(0.8)}
-          className="text-lg text-gray-400 my-5 max-w-[600px]"
+          className="text-lg text-gray-700 my-5 max-w-[600px]"
         >
           Currently a final-year IT student, fast learner, and working on my IBM
           AI Engineer badge. Check out my evolving projects and growing
