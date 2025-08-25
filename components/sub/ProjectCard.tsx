@@ -10,13 +10,13 @@ interface Props {
 
 const ProjectCard: React.FC<Props> = ({ src, title, description, link }) => {
   return (
-    <div className="relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61]">
+    <div className="relative overflow-hidden rounded-lg shadow-sm border border-gray-200 bg-white">
       <Image
         src={src}
         alt={title}
         width={1000}
         height={1000}
-        className="w-full object-contain"
+        className="w-full max-h-48 object-cover"
         loading="lazy"
         data-testid="project-image"
       />
@@ -32,7 +32,8 @@ const ProjectCard: React.FC<Props> = ({ src, title, description, link }) => {
             {title}
           </a>
         </h1>
-        <p className="mt-2 text-gray-700">{description}</p>
+        <p className="mt-2 text-gray-600">{description}</p>
+
       </div>
     </div>
   );
