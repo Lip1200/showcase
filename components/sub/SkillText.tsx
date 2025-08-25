@@ -8,6 +8,7 @@ const SkillText = () => {
       <p className="text-gray-600 text-center mt-4">
         A snapshot of the technologies I work with.
       </p>
+
     </div>
   );
 };
