@@ -23,6 +23,7 @@ const HeroContent = () => {
           </p>
         </div>
 
+
         <div className="flex gap-4 mt-5">
           <div className="py-2 px-5 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px]">
             <Link
