@@ -2,9 +2,10 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowDownTrayIcon } from "@heroicons/react/24/solid"; // Import des icônes
+import { ArrowDownTrayIcon, SparklesIcon } from "@heroicons/react/24/solid"; // Import des icônes
 import Image from "next/image";
 import Link from "next/link";
+import { slideInFromTop, slideInFromLeft } from "@/lib/utils/motion";
 
 const HeroContent = () => {
   return (
@@ -16,6 +17,8 @@ const HeroContent = () => {
       <div className="h-full w-full flex flex-col gap-5 justify-center m-auto text-start">
         <motion.div
           variants={slideInFromTop}
+          initial="hidden"
+          animate="visible"
           className="Welcome-box py-[8px] px-[7px] border border-[#7042f88b] opacity-[0.9] flex items-center"
         >
           <SparklesIcon className="text-primary mr-[10px] h-5 w-5" />
@@ -24,6 +27,8 @@ const HeroContent = () => {
 
         <motion.div
           variants={slideInFromLeft(0.5)}
+          initial="hidden"
+          animate="visible"
           className="flex flex-col gap-6 mt-6 text-6xl font-bold text-white max-w-[600px] w-auto"
         >
           <span>
