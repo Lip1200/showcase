@@ -22,7 +22,7 @@ const ProjectCard: React.FC<Props> = ({ src, title, description, link }) => {
       />
 
       <div className="relative p-4">
-        <h1 className="text-2xl font-semibold text-white">
+        <h1 className="text-2xl font-semibold text-gray-900">
           <a
             href={link}
             target="_blank"
@@ -32,7 +32,7 @@ const ProjectCard: React.FC<Props> = ({ src, title, description, link }) => {
             {title}
           </a>
         </h1>
-        <p className="mt-2 text-gray-300">{description}</p>
+        <p className="mt-2 text-gray-700">{description}</p>
       </div>
     </div>
   );
