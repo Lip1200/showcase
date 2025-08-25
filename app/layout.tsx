@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import StarsCanvas from "@/components/main/StarBackground";
 import Navbar from "@/components/main/Navbar";
 import Footer from "@/components/main/Footer";
 import React from "react";
@@ -22,6 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${inter.className} bg-neutral overflow-y-scroll overflow-x-hidden`}
+
       >
         <div className="relative z-[30]">
           <Navbar />
@@ -32,8 +32,6 @@ export default function RootLayout({
         <div className="relative z-[30]">
           <Footer />
         </div>
-        <StarsCanvas />{" "}
-        {/* Place les étoiles derrière en ajustant le z-index */}
       </body>
     </html>
   );

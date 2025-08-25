@@ -2,20 +2,15 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  slideInFromLeft,
-  slideInFromRight,
-  slideInFromTop,
-} from "@/lib/utils/motion";
-import { SparklesIcon, ArrowDownTrayIcon } from "@heroicons/react/24/solid"; // Import des icônes
+import { ArrowDownTrayIcon } from "@heroicons/react/24/solid"; // Import des icônes
 import Image from "next/image";
 import Link from "next/link";
 
 const HeroContent = () => {
   return (
     <motion.div
-      initial="hidden"
-      animate="visible"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       className="flex flex-row items-center justify-center px-20 mt-40 w-full z-[20]"
     >
       <div className="h-full w-full flex flex-col gap-5 justify-center m-auto text-start">
@@ -41,40 +36,19 @@ const HeroContent = () => {
           </span>
         </motion.div>
 
-        <motion.p
-          variants={slideInFromLeft(0.8)}
-          className="text-lg text-gray-400 my-5 max-w-[600px]"
-        >
-          Currently a final-year IT student, fast learner, and working on my IBM
-          AI Engineer badge. Check out my evolving projects and growing
-          expertise.
-        </motion.p>
 
-        <div className="flex gap-4">
-          {/* Bouton Learn More */}
-          <motion.div
-            variants={slideInFromLeft(1)}
-            whileInView="visible"
-            initial="hidden"
-            viewport={{ once: true, amount: 0.2 }}
-            className="py-2 px-5 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px]"
-          >
+
+        <div className="flex gap-4 mt-5">
+          <div className="py-2 px-5 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px]">
             <Link
               href="#cv"
               className="text-white flex items-center justify-center"
             >
               Learn More
             </Link>
-          </motion.div>
+          </div>
 
-          {/* Bouton My CV avec icône */}
-          <motion.div
-            variants={slideInFromLeft(1.2)}
-            whileInView="visible"
-            initial="hidden"
-            viewport={{ once: true, amount: 0.2 }}
-            className="py-2 px-5 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px]"
-          >
+          <div className="py-2 px-5 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px]">
             <Link
               href="/cv.pdf"
               download
@@ -83,13 +57,14 @@ const HeroContent = () => {
               <ArrowDownTrayIcon className="w-5 h-5" />
               My CV
             </Link>
-          </motion.div>
+          </div>
         </div>
       </div>
 
       {/* QR Code */}
       <motion.div
-        variants={slideInFromRight(0.8)}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         className="w-full h-full flex justify-center items-center"
       >
         <div className="relative w-[50%] max-w-[300px] h-[300px]">
