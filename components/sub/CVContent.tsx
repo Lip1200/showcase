@@ -36,7 +36,7 @@ const CVContent = () => {
           whileInView="visible"
           initial="hidden"
           viewport={{ once: true, amount: 0.2 }}
-          className="text-xl mb-4 text-gray-400 w-full"
+          className="text-xl mb-4 text-gray-700 w-full"
         >
           Below is a summary of my professional journey, highlighting my diverse
           experiences and skills.
@@ -48,21 +48,21 @@ const CVContent = () => {
           whileInView="visible"
           initial="hidden"
           viewport={{ once: true, amount: 0.2 }}
-          className="w-full p-8 bg-gray-800 bg-opacity-10 rounded-lg shadow-lg"
+          className="w-full p-8 bg-gray-100 rounded-lg shadow-lg"
         >
           {/* Expérience professionnelle */}
           <section className="mb-6 w-full">
-            <h2 className="text-2xl font-semibold mb-2 text-white">
+            <h2 className="text-2xl font-semibold mb-2 text-gray-900">
               Professional Experience
             </h2>
-            <p className="text-lg text-gray-300 w-full">
+            <p className="text-lg text-gray-700 w-full">
               Having worked for over a decade as a specialized educator, I have
               honed critical interpersonal and management skills. My career
               transition into IT allowed me to find the intellectual stimulation
               I was seeking, and I am currently advancing my expertise as an AI
               Engineer.
             </p>
-            <ul className="list-disc pl-5 text-lg mt-4 text-gray-300 w-full">
+            <ul className="list-disc pl-5 text-lg mt-4 text-gray-700 w-full">
               <li>AI Engineer in training, IBM Badge Program (Current)</li>
               <li>IT Specialist, UNIGE (2022 - 2025)</li>
               <li>Specialized Educator, various institutions (2010 - 2022)</li>
@@ -71,14 +71,14 @@ const CVContent = () => {
 
           {/* Éducation */}
           <section className="mb-6 w-full">
-            <h2 className="text-2xl font-semibold mb-2 text-white">
+            <h2 className="text-2xl font-semibold mb-2 text-gray-900">
               Education
             </h2>
-            <p className="text-lg text-gray-300 w-full">
+            <p className="text-lg text-gray-700 w-full">
               Bachelor&apos;s Degree in Information Systems and Service Science
               (Expected 2025)
             </p>
-            <p className="text-lg text-gray-300 w-full">
+            <p className="text-lg text-gray-700 w-full">
               Bachelor of Arts in Social Work, specialization in Special
               Education (2017)
             </p>
@@ -86,13 +86,13 @@ const CVContent = () => {
 
           {/* Compétences */}
           <section className="mb-6 w-full">
-            <h2 className="text-2xl font-semibold mb-2 text-white">Skills</h2>
-            <p className="text-lg text-gray-300 w-full">
+            <h2 className="text-2xl font-semibold mb-2 text-gray-900">Skills</h2>
+            <p className="text-lg text-gray-700 w-full">
               <strong>Technical Skills:</strong> C, C++, Java, Scala, Python,
               Flask, TailwindCSS, Next.js, ChromaDB, Scikit-learn, Docker,
               SQLAlchemy, ...
             </p>
-            <p className="text-lg text-gray-300 mt-2 w-full">
+            <p className="text-lg text-gray-700 mt-2 w-full">
               <strong>Interpersonal Skills:</strong> I am a facilitator of team
               cohesion, conflict resolution, active listening, adaptability,
               mentorship.
@@ -101,8 +101,8 @@ const CVContent = () => {
 
           {/* À propos de moi */}
           <section className="mb-6 w-full">
-            <h2 className="text-2xl font-semibold mb-2 text-white">About Me</h2>
-            <p className="text-lg text-gray-300 w-full">
+            <h2 className="text-2xl font-semibold mb-2 text-gray-900">About Me</h2>
+            <p className="text-lg text-gray-700 w-full">
               My transition from specialized education to IT has been a
               transformative journey. In addition to my work, I am a passionate
               boxer and have recently become a father, both of which contribute
