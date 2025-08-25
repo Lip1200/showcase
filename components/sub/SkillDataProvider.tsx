@@ -40,7 +40,7 @@ const SkillDataProvider = ({ src, width, height, alt, index }: Props) => {
         width={width}
         height={height}
         alt={alt}
-        className="object-contain"
+        className="object-contain transition-opacity hover:opacity-80"
       />
     </motion.div>
   );
