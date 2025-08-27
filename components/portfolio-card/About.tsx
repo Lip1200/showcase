@@ -73,7 +73,10 @@ const About = () => {
               {t.personalInfo.longDescription}
             </p>
             <p className="pb-4">
-              {t.messages.primaryTechs} {t.personalInfo.skills.frontend.slice(0, 4).join(", ")}, {t.personalInfo.skills.backend.slice(0, 3).join(", ")}.
+              {t.messages.primaryTechs}
+            </p>
+            <p className="pb-4">
+              {t.messages.expandingInto}
             </p>
             <p className="pb-4">
               {t.messages.lookingForPosition}
