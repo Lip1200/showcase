@@ -1,37 +1,35 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Inconsolata } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/main/Navbar";
-import Footer from "@/components/main/Footer";
 import React from "react";
+import { ThemeProvider } from "../components/portfolio-card/ThemeProvider";
+import { LanguageProvider } from "../components/portfolio-card/LanguageProvider";
 
 const inter = Inter({ subsets: ["latin"] });
+const inconsolata = Inconsolata({ 
+  subsets: ["latin"],
+  weight: ["200", "400", "700", "900"],
+  variable: "--font-inconsolata"
+});
 
 export const metadata: Metadata = {
-  title: "Filipe's portfolio",
-  description: "Modern curriculum vitae and porfolio",
+  title: "Filipe Ramos - Developer",
+  description: "Minimalist portfolio design by Keita Yamada",
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
-    <html lang="en">
-      <body
-        className={`${inter.className} bg-neutral overflow-y-scroll overflow-x-hidden`}
-
-      >
-        <div className="relative z-[30]">
-          <Navbar />
-        </div>
-        <div className="relative z-[20]">
-          {children} {/* Toutes les sections principales */}
-        </div>
-        <div className="relative z-[30]">
-          <Footer />
-        </div>
+    <html lang="en" className={inconsolata.variable}>
+      <body className={`${inter.className} bg-main overflow-hidden`}>
+        <ThemeProvider>
+          <LanguageProvider>
+            {children}
+          </LanguageProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
