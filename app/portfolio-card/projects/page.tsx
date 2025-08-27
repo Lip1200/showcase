@@ -3,7 +3,7 @@
 import PortfolioLayout from "@/components/portfolio-card/PortfolioLayout";
 
 const ProjectsPage = () => {
-  return <PortfolioLayout />;
+  return <PortfolioLayout initialPage="projects" />;
 };
 
 export default ProjectsPage;

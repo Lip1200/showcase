@@ -1,11 +1,16 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Link from "next/link";
 import Typewriter from "./Typewriter";
 import { useTranslation } from "./useTranslation";
+import { Page } from "./PortfolioLayout";
 
-const Header = () => {
+interface HeaderProps {
+  currentPage: Page;
+  setCurrentPage: (page: Page) => void;
+}
+
+const Header = ({ currentPage, setCurrentPage }: HeaderProps) => {
   const [scrollY, setScrollY] = useState(0);
   const { t } = useTranslation();
 
@@ -17,6 +22,11 @@ const Header = () => {
 
   // Calcul de l'opacité basé sur le scroll (fade quand on scroll vers le haut)
   const titleOpacity = Math.max(0, 1 - scrollY / 100);
+
+  const handleNavigation = (page: Page, e: React.MouseEvent) => {
+    e.preventDefault();
+    setCurrentPage(page);
+  };
 
   return (
     <div className="w-64 h-80 text-content m-7 absolute top-0 left-0">
@@ -32,24 +42,36 @@ const Header = () => {
       
       <ul className="list-none cursor-pointer pt-8 text-primary">
         <li className="pt-3 font-black">
-          <Link href="/portfolio-card" className="no-underline text-primary hover:text-accent transition-colors">
+          <button 
+            onClick={(e) => handleNavigation('home', e)} 
+            className={`no-underline hover:text-accent transition-colors bg-transparent border-none cursor-pointer font-black ${currentPage === 'home' ? 'text-accent' : 'text-primary'}`}
+          >
             {t.navigation.home}
-          </Link>
+          </button>
         </li>
         <li className="pt-3 font-black">
-          <Link href="/portfolio-card/projects" className="no-underline text-primary hover:text-accent transition-colors">
+          <button 
+            onClick={(e) => handleNavigation('projects', e)} 
+            className={`no-underline hover:text-accent transition-colors bg-transparent border-none cursor-pointer font-black ${currentPage === 'projects' ? 'text-accent' : 'text-primary'}`}
+          >
             {t.navigation.projects}
-          </Link>
+          </button>
         </li>
         <li className="pt-3 font-black">
-          <Link href="/portfolio-card/about" className="no-underline text-primary hover:text-accent transition-colors">
+          <button 
+            onClick={(e) => handleNavigation('about', e)} 
+            className={`no-underline hover:text-accent transition-colors bg-transparent border-none cursor-pointer font-black ${currentPage === 'about' ? 'text-accent' : 'text-primary'}`}
+          >
             {t.navigation.about}
-          </Link>
+          </button>
         </li>
         <li className="pt-3 font-black">
-          <Link href="/portfolio-card/contact" className="no-underline text-primary hover:text-accent transition-colors">
+          <button 
+            onClick={(e) => handleNavigation('contact', e)} 
+            className={`no-underline hover:text-accent transition-colors bg-transparent border-none cursor-pointer font-black ${currentPage === 'contact' ? 'text-accent' : 'text-primary'}`}
+          >
             {t.navigation.contact}
-          </Link>
+          </button>
         </li>
       </ul>
     </div>

@@ -17,10 +17,10 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
   const [language, setLanguage] = useState<Language>("en");
 
   useEffect(() => {
-    const savedLanguage = localStorage.getItem("portfolio-language") as Language;
-    if (savedLanguage && (savedLanguage === "fr" || savedLanguage === "en")) {
-      setLanguage(savedLanguage);
-    }
+    // Force reset to English for testing
+    localStorage.removeItem("portfolio-language");
+    setLanguage("en");
+    localStorage.setItem("portfolio-language", "en");
   }, []);
 
   const handleSetLanguage = (newLanguage: Language) => {
