@@ -61,19 +61,19 @@ const About = () => {
       <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-bg to-transparent z-10 pointer-events-none"></div>
       
       <motion.div 
-        className="h-full overflow-y-auto portfolio-scroll px-4 pt-8 pb-8"
+        className="h-full overflow-y-auto overflow-x-hidden p-4 portfolio-scroll"
         variants={staggerContainer()}
         initial="hidden"
         whileInView="show"
         viewport={{ once: false, amount: 0.25 }}
       >
         <ContainerSlideIn variants={fadeIn("left", "tween", 1.4, 1)}>
-          <div>
+          <div className="pt-4">
             <p className="pb-4">
               {t.personalInfo.longDescription}
             </p>
             <p className="pb-4">
-              Primary Techs: {t.personalInfo.skills.frontend.slice(0, 4).join(", ")}, {t.personalInfo.skills.backend.slice(0, 3).join(", ")}.
+              {t.messages.primaryTechs} {t.personalInfo.skills.frontend.slice(0, 4).join(", ")}, {t.personalInfo.skills.backend.slice(0, 3).join(", ")}.
             </p>
             <p className="pb-4">
               {t.messages.lookingForPosition}

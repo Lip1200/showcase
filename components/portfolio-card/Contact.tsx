@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "./useTranslation";
 
@@ -51,61 +51,167 @@ const ContainerSlideIn = motion.div;
 
 const Contact = () => {
   const { t } = useTranslation();
-  
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [contactEmail, setContactEmail] = useState('');
+
+  // Fetch contact email from API on component mount
+  React.useEffect(() => {
+    const fetchContactInfo = async () => {
+      try {
+        const response = await fetch('/api/contact');
+        const data = await response.json();
+        if (data.email) {
+          setContactEmail(data.email);
+        }
+      } catch (error) {
+        console.error('Error fetching contact info:', error);
+      }
+    };
+    
+    fetchContactInfo();
+  }, []);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      if (!contactEmail) {
+        console.error('Contact email not available');
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Create mailto link with form data
+      const mailtoLink = `mailto:${contactEmail}?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
+        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+      )}`;
+      
+      // Open default email client
+      window.location.href = mailtoLink;
+      
+      setIsSubmitted(true);
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (error) {
+      console.error('Error sending email:', error);
+    }
+    
+    setIsSubmitting(false);
+  };
+
   return (
     <div className="w-[58%] h-[60%] text-content absolute top-[25%] right-[5%] font-mono z-[100]">
       {/* Fade gradient en haut */}
       <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-bg to-transparent z-10 pointer-events-none"></div>
       
       <motion.div 
-        className="h-full overflow-y-auto portfolio-scroll px-4 pt-8 pb-8"
+        className="h-full overflow-y-auto overflow-x-hidden p-4 portfolio-scroll"
         variants={staggerContainer()}
         initial="hidden"
         whileInView="show"
         viewport={{ once: false, amount: 0.25 }}
       >
         <ContainerSlideIn variants={fadeIn("left", "tween", 1.4, 1)}>
-          <div className="space-y-6">
-            <div>
-              <h3 className="text-lg font-bold mb-2 text-primary">{t.labels.email}</h3>
-              <p>
-                <a 
-                  href={`mailto:${t.personalInfo.email}`}
-                  className="text-accent hover:text-primary transition-colors underline"
-                >
-                  {t.personalInfo.email}
-                </a>
-              </p>
+          {isSubmitted ? (
+            <div className="text-center space-y-4">
+              <h2 className="text-xl text-primary">{t.contact.thankYou}</h2>
+              <p className="text-content">{t.contact.emailOpened}</p>
+              <button
+                onClick={() => setIsSubmitted(false)}
+                className="text-accent hover:text-primary transition-colors underline"
+              >
+                {t.contact.sendAnother}
+              </button>
             </div>
-            
-            <div>
-              <h3 className="text-lg font-bold mb-2 text-primary">{t.labels.github}</h3>
-              <p>
-                <a 
-                  href={t.personalInfo.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-accent hover:text-primary transition-colors underline"
-                >
-                  {t.personalInfo.github}
-                </a>
-              </p>
-            </div>
-            
-            <div>
-              <h3 className="text-lg font-bold mb-2 text-primary">{t.labels.linkedin}</h3>
-              <p>
-                <a 
-                  href={t.personalInfo.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-accent hover:text-primary transition-colors underline"
-                >
-                  {t.personalInfo.linkedin}
-                </a>
-              </p>
-            </div>
-          </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-primary mb-2">
+                  {t.contact.name}
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-3 py-2 bg-transparent border border-content text-content focus:border-primary focus:outline-none text-sm font-mono"
+                  placeholder={t.contact.namePlaceholder}
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-primary mb-2">
+                  {t.contact.email}
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-3 py-2 bg-transparent border border-content text-content focus:border-primary focus:outline-none text-sm font-mono"
+                  placeholder={t.contact.emailPlaceholder}
+                />
+              </div>
+
+              <div>
+                <label htmlFor="subject" className="block text-sm font-medium text-primary mb-2">
+                  {t.contact.subject}
+                </label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-3 py-2 bg-transparent border border-content text-content focus:border-primary focus:outline-none text-sm font-mono"
+                  placeholder={t.contact.subjectPlaceholder}
+                />
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-primary mb-2">
+                  {t.contact.message}
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  rows={5}
+                  className="w-full px-3 py-2 bg-transparent border border-content text-content focus:border-primary focus:outline-none text-sm font-mono resize-none"
+                  placeholder={t.contact.messagePlaceholder}
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full py-2 px-4 bg-transparent border border-primary text-primary hover:bg-primary hover:text-bg transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-mono text-sm"
+              >
+                {isSubmitting ? t.contact.sending : t.contact.send}
+              </button>
+            </form>
+          )}
         </ContainerSlideIn>
       </motion.div>
       

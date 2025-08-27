@@ -2,49 +2,57 @@ export const translations = {
   fr: {
     projects: [
       {
-        name: "AI Movie Recommendation",
-        projects: "Système de recommandation de films alimenté par l'IA • ChromaDB + Flask",
-        year: "Projet académique, 2024.",
-        url: "https://github.com/Lip1200/color_movie",
-        web: "https://github.com/Lip1200/color_movie",
-      },
-      {
-        name: "OS Programming",
-        projects: "Programmation C • System calls, file locking, shell personnalisé",
-        year: "Université, 2024.",
-        url: "https://github.com/Lip1200/system-calls",
-        web: "https://github.com/Lip1200/system-calls",
-      },
-      {
-        name: "Unity Networked Game",
-        projects: "Jeu en réseau multi-joueurs • Unity + synchronisation temps réel",
-        year: "Projet d'équipe, 2024.",
-        url: "https://gitlab.unige.ch/stm_game/game",
-        web: "https://gitlab.unige.ch/stm_game/game",
+        name: "NL2SPARQL Calvin",
+        projects: "Conversion automatique français → SPARQL • LLM + GraphDB + Qdrant",
+        year: "Travail de Bachelor, 2025.",
+        url: "https://github.com/Lip1200/nl2sparql_calvin",
+        web: "https://github.com/Lip1200/nl2sparql_calvin",
       },
       {
         name: "Portfolio Showcase",
         projects: "Portfolio moderne • Next.js + Framer Motion + TailwindCSS",
-        year: "Personnel, 2024.",
+        year: "Personnel, 2025.",
         url: "https://github.com/Lip1200/showcase",
         web: "https://filipe-showcase.vercel.app",
+      },
+      {
+        name: "OS Programming",
+        projects: "Programmation C • System calls, file locking, shell personnalisé",
+        year: "Université, 2023.",
+        url: "https://github.com/Lip1200/system-calls",
+        web: "https://github.com/Lip1200/system-calls",
+      },
+      {
+        name: "AI Movie Recommendation",
+        projects: "Système de recommandation de films alimenté par l'IA • ChromaDB + Flask",
+        year: "Projet académique, 2023.",
+        url: "https://github.com/Lip1200/color_movie",
+        web: "https://github.com/Lip1200/color_movie",
+      },
+      {
+        name: "Unity Networked Game",
+        projects: "Jeu en réseau multi-joueurs • Unity + synchronisation temps réel",
+        year: "Projet d'équipe, 2023.",
+        url: "https://gitlab.unige.ch/stm_game/game",
+        web: "https://gitlab.unige.ch/stm_game/game",
       },
     ],
     personalInfo: {
       name: "Filipe Ramos",
-      title: ".developer ",
+      title: ".developer",
       email: "***REMOVED***",
       github: "https://github.com/Lip1200",
+      gitlab: "https://gitlab.unige.ch/Filipe.Ramos",
       linkedin: "https://www.linkedin.com/in/filipe-lip",
       description: "Spécialiste IT et développeur full-stack.",
       longDescription: `Ayant travaillé pendant plus d'une décennie comme éducateur spécialisé, j'ai perfectionné des compétences interpersonnelles et de gestion critiques. Ma transition de carrière vers l'IT m'a permis de trouver la stimulation intellectuelle que je recherchais, et je développe actuellement mon expertise en tant qu'ingénieur IA.`,
       skills: {
         frontend: ["HTML5", "CSS3", "JavaScript", "TypeScript", "React", "Next.js", "TailwindCSS"],
-        backend: ["C","Python", "Flask", "Node.js", "MySQL", "GraphQL", "SQLAlchemy"],
+        backend: ["C","Python", "Java", "Flask", "Node.js", "MySQL", "GraphQL", "SQLAlchemy"],
         devops: ["Docker", "Kubernetes"],
         languages: ["C", "C++", "Scala", "Python", "Java"],
-        ai: ["PyTorch", "Keras", "Tensorflow", "ChromaDB", "Scikit-learn", "Pandas"],
-        tools: ["Git", "Figma"]
+        ai: ["PyTorch", "Keras", "Tensorflow", "ChromaDB", "Scikit-learn", "Pandas", "LangChain", "SPARQL", "Qdrant"],
+        tools: ["Git", "Figma", "GraphDB"]
       },
       experience: [
         {
@@ -101,49 +109,73 @@ export const translations = {
       tools: "Outils"
     },
     messages: {
+      primaryTechs: "Technologies principales :",
       lookingForPosition: "Je recherche une position de niveau junior où je peux utiliser mes compétences pour créer des produits incroyables avec un design et une expérience utilisateur formidables.",
       motivators: "Mes motivateurs sont la curiosité, le plaisir et le désir d'accomplir quelque chose de remarquable.",
       goal: "Mon objectif est de créer des expériences web exceptionnelles.",
       workTogether: "Travaillons ensemble pour avoir un impact durable.",
       whatsNext: "What's next?"
+    },
+    contact: {
+      name: "Nom",
+      email: "Email", 
+      subject: "Sujet",
+      message: "Message",
+      namePlaceholder: "Votre nom complet",
+      emailPlaceholder: "votre.email@exemple.com",
+      subjectPlaceholder: "Sujet de votre message",
+      messagePlaceholder: "Écrivez votre message ici...",
+      send: "Envoyer",
+      sending: "Envoi...",
+      thankYou: "Merci !",
+      emailOpened: "Votre client email va s'ouvrir avec le message pré-rempli.",
+      sendAnother: "Envoyer un autre message"
     }
   },
   en: {
     projects: [
       {
-        name: "AI Movie Recommendation",
-        projects: "AI-powered movie recommendation system • ChromaDB + Flask",
-        year: "Academic project, 2024.",
-        url: "https://github.com/Lip1200/color_movie",
-        web: "https://github.com/Lip1200/color_movie",
-      },
-      {
-        name: "OS Programming",
-        projects: "C Programming • System calls, file locking, custom shell",
-        year: "University, 2024.",
-        url: "https://github.com/Lip1200/system-calls",
-        web: "https://github.com/Lip1200/system-calls",
-      },
-      {
-        name: "Unity Networked Game",
-        projects: "Multiplayer networked game • Unity + real-time synchronization",
-        year: "Team project, 2024.",
-        url: "https://gitlab.unige.ch/stm_game/game",
-        web: "https://gitlab.unige.ch/stm_game/game",
+        name: "NL2SPARQL Calvin",
+        projects: "Automatic French → SPARQL conversion • LLM + GraphDB + Qdrant",
+        year: "Bachelor's Thesis, 2025.",
+        url: "https://github.com/Lip1200/nl2sparql_calvin",
+        web: "https://github.com/Lip1200/nl2sparql_calvin",
       },
       {
         name: "Portfolio Showcase",
         projects: "Modern portfolio • Next.js + Framer Motion + TailwindCSS",
-        year: "Personal, 2024.",
+        year: "Personal, 2025.",
         url: "https://github.com/Lip1200/showcase",
         web: "https://filipe-showcase.vercel.app",
+      },
+      {
+        name: "OS Programming",
+        projects: "C Programming • System calls, file locking, custom shell",
+        year: "University, 2023.",
+        url: "https://github.com/Lip1200/system-calls",
+        web: "https://github.com/Lip1200/system-calls",
+      },
+      {
+        name: "AI Movie Recommendation",
+        projects: "AI-powered movie recommendation system • ChromaDB + Flask",
+        year: "Academic project, 2023.",
+        url: "https://github.com/Lip1200/color_movie",
+        web: "https://github.com/Lip1200/color_movie",
+      },
+      {
+        name: "Unity Networked Game",
+        projects: "Multiplayer networked game • Unity + real-time synchronization",
+        year: "Team project, 2023.",
+        url: "https://gitlab.unige.ch/stm_game/game",
+        web: "https://gitlab.unige.ch/stm_game/game",
       },
     ],
     personalInfo: {
       name: "Filipe Ramos",
-      title: ".developer ",
+      title: ".developer",
       email: "***REMOVED***",
       github: "https://github.com/Lip1200",
+      gitlab: "https://gitlab.unige.ch/Filipe.Ramos",
       linkedin: "https://www.linkedin.com/in/filipe-lip",
       description: "IT Specialist and full-stack developer.",
       longDescription: `Having worked for over a decade as a special education professional, I honed critical interpersonal and management skills. My career transition to IT allowed me to find the intellectual stimulation I was seeking, and I am currently developing my expertise as an AI engineer.`,
@@ -152,8 +184,8 @@ export const translations = {
         backend: ["C","Python", "Flask", "Node.js", "MySQL", "GraphQL", "SQLAlchemy"],
         devops: ["Docker", "Kubernetes"],
         languages: ["C", "C++", "Scala", "Python", "Java"],
-        ai: ["PyTorch", "Keras", "Tensorflow", "ChromaDB", "Scikit-learn", "Pandas"],
-        tools: ["Git", "Figma"]
+        ai: ["PyTorch", "Keras", "Tensorflow", "ChromaDB", "Scikit-learn", "Pandas", "LangChain", "SPARQL", "Qdrant"],
+        tools: ["Git", "Figma", "GraphDB"]
       },
       experience: [
         {
@@ -210,11 +242,27 @@ export const translations = {
       tools: "Tools"
     },
     messages: {
+      primaryTechs: "Primary Techs:",
       lookingForPosition: "I'm looking for a junior-level position where I can use my skills to create amazing products with great design and user experience.",
       motivators: "My motivators are curiosity, fun, and the desire to accomplish something remarkable.",
       goal: "My goal is to create exceptional web experiences.",
       workTogether: "Let's work together to make a lasting impact.",
       whatsNext: "What's next?"
+    },
+    contact: {
+      name: "Name",
+      email: "Email",
+      subject: "Subject", 
+      message: "Message",
+      namePlaceholder: "Your full name",
+      emailPlaceholder: "your.email@example.com",
+      subjectPlaceholder: "Subject of your message",
+      messagePlaceholder: "Write your message here...",
+      send: "Send",
+      sending: "Sending...",
+      thankYou: "Thank you!",
+      emailOpened: "Your email client will open with the pre-filled message.",
+      sendAnother: "Send another message"
     }
   }
 };

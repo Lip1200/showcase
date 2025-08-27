@@ -1,25 +1,38 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Container from "./Container";
 import Header from "./Header";
-import { usePathname } from "next/navigation";
 import About from "./About";
 import Projects from "./Projects";
 import Contact from "./Contact";
 import DetailedAbout from "./DetailedAbout";
 
-const PortfolioLayout = () => {
-  const pathname = usePathname();
+export type Page = 'home' | 'projects' | 'about' | 'contact';
+
+const PortfolioLayout = ({ initialPage = 'home' }: { initialPage?: Page }) => {
+  const [currentPage, setCurrentPage] = useState<Page>(initialPage);
+
+  const renderPage = () => {
+    switch (currentPage) {
+      case 'home':
+        return <About key="about" />;
+      case 'projects':
+        return <Projects key="projects" />;
+      case 'about':
+        return <DetailedAbout key="detailed-about" />;
+      case 'contact':
+        return <Contact key="contact" />;
+      default:
+        return <About key="about" />;
+    }
+  };
 
   return (
     <Container>
-      <Header />
-      <div key={pathname} className="w-full h-full">
-        {pathname === "/portfolio-card" && <About key="about" />}
-        {pathname === "/portfolio-card/projects" && <Projects key="projects" />}
-        {pathname === "/portfolio-card/about" && <DetailedAbout key="detailed-about" />}
-        {pathname === "/portfolio-card/contact" && <Contact key="contact" />}
+      <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      <div key={currentPage} className="w-full h-full">
+        {renderPage()}
       </div>
     </Container>
   );

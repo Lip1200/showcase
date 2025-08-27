@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { personalInfo } from "./data";
+import { useTranslation } from "./useTranslation";
 
 const fadeIn = (direction: string, type: string, delay: number, duration: number) => {
   const getX = () => {
@@ -48,6 +48,7 @@ const staggerContainer = (staggerChildren?: number, delayChildren?: number) => (
 });
 
 const DetailedAbout = () => {
+  const { t } = useTranslation();
   return (
     <div className="w-[58%] h-[60%] text-content absolute top-[25%] right-[5%] font-mono z-[100]">
       {/* Fade gradient en haut */}
@@ -67,8 +68,8 @@ const DetailedAbout = () => {
           <div className="space-y-6">
             {/* Expérience */}
             <section>
-              <h3 className="text-primary font-semibold mb-3">Experience</h3>
-              {personalInfo.experience.map((exp) => (
+              <h3 className="text-primary font-semibold mb-3">{t.labels.experience}</h3>
+              {t.personalInfo.experience.map((exp: any) => (
                 <div key={exp.title} className="mb-4">
                   <h4 className="font-medium text-primary">{exp.title}</h4>
                   <p className="text-sm text-content">{exp.company} • {exp.period}</p>
@@ -79,8 +80,8 @@ const DetailedAbout = () => {
 
             {/* Éducation */}
             <section>
-              <h3 className="text-primary font-semibold mb-3">Education</h3>
-              {personalInfo.education.map((edu) => (
+              <h3 className="text-primary font-semibold mb-3">{t.labels.education}</h3>
+              {t.personalInfo.education.map((edu: any) => (
                 <div key={edu.degree} className="mb-3">
                   <h4 className="font-medium text-primary">{edu.degree}</h4>
                   <p className="text-sm text-content">{edu.school} • {edu.year}</p>
@@ -90,23 +91,23 @@ const DetailedAbout = () => {
 
             {/* Compétences */}
             <section>
-              <h3 className="text-primary font-semibold mb-3">Skills</h3>
+              <h3 className="text-primary font-semibold mb-3">{t.labels.skills}</h3>
               <div className="space-y-2">
                 <div>
-                  <span className="font-medium text-primary">Frontend: </span>
-                  <span className="text-sm text-content">{personalInfo.skills.frontend.join(", ")}</span>
+                  <span className="font-medium text-primary">{t.labels.frontend}: </span>
+                  <span className="text-sm text-content">{t.personalInfo.skills.frontend.join(", ")}</span>
                 </div>
                 <div>
-                  <span className="font-medium text-primary">Backend: </span>
-                  <span className="text-sm text-content">{personalInfo.skills.backend.join(", ")}</span>
+                  <span className="font-medium text-primary">{t.labels.backend}: </span>
+                  <span className="text-sm text-content">{t.personalInfo.skills.backend.join(", ")}</span>
                 </div>
                 <div>
-                  <span className="font-medium text-primary">DevOps: </span>
-                  <span className="text-sm text-content">{personalInfo.skills.devops.join(", ")}</span>
+                  <span className="font-medium text-primary">{t.labels.devops}: </span>
+                  <span className="text-sm text-content">{t.personalInfo.skills.devops.join(", ")}</span>
                 </div>
                 <div>
-                  <span className="font-medium text-primary">AI/ML: </span>
-                  <span className="text-sm text-content">{personalInfo.skills.ai.join(", ")}</span>
+                  <span className="font-medium text-primary">{t.labels.ai}: </span>
+                  <span className="text-sm text-content">{t.personalInfo.skills.ai.join(", ")}</span>
                 </div>
               </div>
             </section>

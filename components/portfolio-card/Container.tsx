@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
 import LanguageToggle from "./LanguageToggle";
+import SocialLinks from "./SocialLinks";
 
 interface ContainerProps {
   children: React.ReactNode;
@@ -20,6 +21,7 @@ const Container: React.FC<ContainerProps> = ({ children }) => {
           animate={{ opacity: 1 }}
           transition={{ duration: 1, ease: "easeInOut" }}
         >
+          <SocialLinks />
           {children}
         </motion.div>
       </div>
