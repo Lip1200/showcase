@@ -45,7 +45,7 @@ export const translations = {
       gitlab: "https://gitlab.unige.ch/Filipe.Ramos",
       linkedin: "https://www.linkedin.com/in/filipe-lip",
       description: "Spécialiste IT et développeur full-stack.",
-      longDescription: `Ayant travaillé pendant plus d'une décennie comme éducateur spécialisé, j'ai perfectionné des compétences interpersonnelles et de gestion critiques. Ma transition de carrière vers l'IT m'a permis de trouver la stimulation intellectuelle que je recherchais, et je développe actuellement mon expertise en tant qu'ingénieur IA.`,
+      longDescription: `Après plus de dix ans dans l'éducation spécialisée, je mets au service du développement logiciel un leadership éprouvé, une communication claire et une réelle empathie des usages. Je me suis reconverti à l'informatique pour résoudre des problèmes complexes à fort impact ; aujourd'hui, je travaille sur le développement de bout en bout, l'automatisation des déploiements et l'IA mise en pratique.`,
       skills: {
         frontend: ["HTML5", "CSS3", "JavaScript", "TypeScript", "React", "Next.js", "TailwindCSS"],
         backend: ["C","Python", "Java", "Flask", "Node.js", "MySQL", "GraphQL", "SQLAlchemy"],
@@ -109,11 +109,12 @@ export const translations = {
       tools: "Outils"
     },
     messages: {
-      primaryTechs: "Technologies principales :",
-      lookingForPosition: "Je recherche une position de niveau junior où je peux utiliser mes compétences pour créer des produits incroyables avec un design et une expérience utilisateur formidables.",
-      motivators: "Mes motivateurs sont la curiosité, le plaisir et le désir d'accomplir quelque chose de remarquable.",
-      goal: "Mon objectif est de créer des expériences web exceptionnelles.",
-      workTogether: "Travaillons ensemble pour avoir un impact durable.",
+      primaryTechs: "Technologies principales : Python, TypeScript, Flask/FastAPI, SQL, Docker, CI/CD, Kubernetes, C.",
+      expandingInto: "En apprentissage : Rust pour des services performants et des outils système — j'apprends vite et suis preneur de mentorat/travail en binôme, tout en apportant de la valeur immédiatement sur mes technologies cœur.",
+      lookingForPosition: "Je souhaite rejoindre une équipe où je peux prendre en charge des services de A à Z — conception, développement, conteneurisation, déploiement et supervision — et renforcer la fiabilité des plateformes ainsi que des fonctionnalités IA.",
+      motivators: "Ce qui me motive : curiosité, sens du travail bien fait, utilité concrète.",
+      goal: "Mon objectif : livrer des logiciels fiables et des produits d'IA qui servent vraiment les utilisateurs.",
+      workTogether: "Ouvert aux postes de développeur full-stack, DevOps ou ingénieur IA (une équipe intéressée par Rust est un plus).",
       whatsNext: "What's next?"
     },
     contact: {
@@ -178,7 +179,7 @@ export const translations = {
       gitlab: "https://gitlab.unige.ch/Filipe.Ramos",
       linkedin: "https://www.linkedin.com/in/filipe-lip",
       description: "IT Specialist and full-stack developer.",
-      longDescription: `Having worked for over a decade as a special education professional, I honed critical interpersonal and management skills. My career transition to IT allowed me to find the intellectual stimulation I was seeking, and I am currently developing my expertise as an AI engineer.`,
+      longDescription: `After 10+ years in special education, I bring proven leadership, communication, and stakeholder empathy to engineering. I moved into IT to tackle complex, high-impact problems and now focus on full-stack delivery, automation, and applied AI.`,
       skills: {
         frontend: ["HTML5", "CSS3", "JavaScript", "TypeScript", "React", "Next.js", "TailwindCSS"],
         backend: ["C","Python", "Flask", "Node.js", "MySQL", "GraphQL", "SQLAlchemy"],
@@ -242,11 +243,12 @@ export const translations = {
       tools: "Tools"
     },
     messages: {
-      primaryTechs: "Primary Techs:",
-      lookingForPosition: "I'm looking for a junior-level position where I can use my skills to create amazing products with great design and user experience.",
-      motivators: "My motivators are curiosity, fun, and the desire to accomplish something remarkable.",
-      goal: "My goal is to create exceptional web experiences.",
-      workTogether: "Let's work together to make a lasting impact.",
+      primaryTechs: "Primary techs: Python, TypeScript, Flask/FastAPI, SQL, Docker, CI/CD, Kubernetes, C.",
+      expandingInto: "Expanding into: Rust for high-performance services and tooling — I ramp fast and welcome pairing/mentorship while contributing immediately in my core stack.",
+      lookingForPosition: "I'm looking to join a team where I can own services end-to-end—design, build, containerize, deploy, and monitor—and strengthen platform reliability and ML-powered features.",
+      motivators: "Motivated by curiosity, craft, and meaningful outcomes.",
+      goal: "Goal: ship reliable software and AI-driven products that matter.",
+      workTogether: "Open to Full-Stack, DevOps, and AI Engineering roles (Rust-friendly teams a plus).",
       whatsNext: "What's next?"
     },
     contact: {
