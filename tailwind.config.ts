@@ -12,6 +12,9 @@ const config: Config = {
         primary: '#1D4ED8',
         neutral: '#F3F4F6',
       },
+      fontFamily: {
+        mono: ['var(--font-inconsolata)', 'monospace'],
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
