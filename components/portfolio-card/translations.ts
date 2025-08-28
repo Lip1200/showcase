@@ -129,7 +129,8 @@ export const translations = {
       send: "Envoyer",
       sending: "Envoi...",
       thankYou: "Merci !",
-      emailOpened: "Votre client email va s'ouvrir avec le message pré-rempli.",
+      successMessage: "Votre message a été envoyé avec succès.",
+      errorMessage: "Une erreur est survenue lors de l'envoi du message.",
       sendAnother: "Envoyer un autre message"
     }
   },
@@ -263,7 +264,8 @@ export const translations = {
       send: "Send",
       sending: "Sending...",
       thankYou: "Thank you!",
-      emailOpened: "Your email client will open with the pre-filled message.",
+      successMessage: "Your message has been sent successfully.",
+      errorMessage: "There was an error sending your message.",
       sendAnother: "Send another message"
     }
   }
