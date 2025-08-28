@@ -1,7 +1,11 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import {
+  motion,
+  type Variants,
+  type HTMLMotionProps,
+} from "framer-motion";
 import { useTranslation } from "./useTranslation";
 
 const fadeIn = (direction: string, type: string, delay: number, duration: number) => {
@@ -47,7 +51,17 @@ const staggerContainer = (staggerChildren?: number, delayChildren?: number) => (
   },
 });
 
-export const ContainerSlideIn = ({ children, variants, ...props }: any) => (
+interface ContainerSlideInProps extends HTMLMotionProps<"div"> {
+  children: React.ReactNode;
+  variants?: Variants;
+}
+
+export const ContainerSlideIn = ({
+  children,
+  variants,
+  ...props
+}: ContainerSlideInProps) => (
+
   <motion.div {...props} variants={variants} className="relative">
     {children}
   </motion.div>

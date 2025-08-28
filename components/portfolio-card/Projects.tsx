@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion, Variants, HTMLMotionProps } from "framer-motion";
+
 import { useTranslation } from "./useTranslation";
 import Link from "next/link";
 
@@ -54,6 +55,7 @@ interface ContainerSlideInProps extends HTMLMotionProps<"div"> {
 }
 
 export const ContainerSlideIn = ({ children, variants, ...props }: ContainerSlideInProps) => (
+
   <motion.div {...props} variants={variants} className="relative">
     {children}
   </motion.div>
