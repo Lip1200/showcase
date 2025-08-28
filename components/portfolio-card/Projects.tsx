@@ -1,7 +1,11 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import {
+  motion,
+  type Variants,
+  type HTMLMotionProps,
+} from "framer-motion";
 import { useTranslation } from "./useTranslation";
 import Link from "next/link";
 
@@ -48,11 +52,28 @@ const staggerContainer = (staggerChildren?: number, delayChildren?: number) => (
   },
 });
 
-export const ContainerSlideIn = ({ children, variants, ...props }: any) => (
+interface ContainerSlideInProps extends HTMLMotionProps<"div"> {
+  children: React.ReactNode;
+  variants?: Variants;
+}
+
+export const ContainerSlideIn = ({
+  children,
+  variants,
+  ...props
+}: ContainerSlideInProps) => (
   <motion.div {...props} variants={variants} className="relative">
     {children}
   </motion.div>
 );
+
+interface Project {
+  name: string;
+  projects: string;
+  year: string;
+  url: string;
+  web: string;
+}
 
 const Projects = () => {
   const { t } = useTranslation();
@@ -102,7 +123,7 @@ const Projects = () => {
         whileInView="show"
         viewport={{ once: false, amount: 0.25 }}
       >
-        {t.projects.map((exp: any, i: number) => (
+        {t.projects.map((exp: Project, i: number) => (
           <ContainerSlideIn
             key={exp.name}
             variants={fadeIn("left", "tween", (i + 1) * 0.2, 0.8)}
