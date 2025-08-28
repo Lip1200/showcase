@@ -1,15 +1,12 @@
 "use client";
 
 import React from "react";
-import {
-  motion,
-  type Variants,
-  type HTMLMotionProps,
-} from "framer-motion";
+import { motion, Variants, HTMLMotionProps } from "framer-motion";
+
 import { useTranslation } from "./useTranslation";
 import Link from "next/link";
 
-const fadeIn = (direction: string, type: string, delay: number, duration: number) => {
+const fadeIn = (direction: string, type: string, delay: number, duration: number): Variants => {
   const getX = () => {
     if (direction === "left") return 100;
     if (direction === "right") return -100;
@@ -42,7 +39,7 @@ const fadeIn = (direction: string, type: string, delay: number, duration: number
   };
 };
 
-const staggerContainer = (staggerChildren?: number, delayChildren?: number) => ({
+const staggerContainer = (staggerChildren?: number, delayChildren?: number): Variants => ({
   hidden: {},
   show: {
     transition: {
@@ -54,14 +51,11 @@ const staggerContainer = (staggerChildren?: number, delayChildren?: number) => (
 
 interface ContainerSlideInProps extends HTMLMotionProps<"div"> {
   children: React.ReactNode;
-  variants?: Variants;
+  variants: Variants;
 }
 
-export const ContainerSlideIn = ({
-  children,
-  variants,
-  ...props
-}: ContainerSlideInProps) => (
+export const ContainerSlideIn = ({ children, variants, ...props }: ContainerSlideInProps) => (
+
   <motion.div {...props} variants={variants} className="relative">
     {children}
   </motion.div>
