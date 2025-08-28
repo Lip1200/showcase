@@ -1,12 +1,11 @@
-name: deploy
+name: Deploy to Infomaniak (SFTP)
 on:
   push:
-    branches: [main]
+    branches: [ main ]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -14,22 +13,21 @@ jobs:
       - name: Use Node
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 20
 
-      - name: Build (standalone)
+      - name: Build artifact (Next.js standalone)
         run: |
           npm ci
           npm run build
+          ls -la deploy || true
 
-      # On envoie l'artefact .next/standalone (qui contient server.js + deps),
-      # dans le dossier d’exécution (DEPLOY_PATH).
-      - name: SFTP upload (standalone artifact)
+      - name: SFTP upload (deploy folder)
         uses: wlixcc/SFTP-Deploy-Action@v1.2.6
         with:
-          server: ${{ secrets.DEPLOY_HOST }}
+          server:   ${{ secrets.DEPLOY_HOST }}
           username: ${{ secrets.DEPLOY_USER }}
           password: ${{ secrets.DEPLOY_KEY_PASS }}
           port: 22
           sftp_only: true
-          local_path: ".next/standalone/*"
-          remote_path: ${{ secrets.DEPLOY_PATH }}
+          local_path: "deploy"                 
+          remote_path: "${{ secrets.DEPLOY_PATH }}/" 
