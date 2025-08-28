@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && cp -r public .next/standalone/ || true && mkdir -p .next/standalone/.next && cp -r .next/static .next/standalone/.next/",
+    "build": "next build && npm run build:artifact",
+    "build:artifact": "rm -rf deploy && mkdir -p deploy/.next && cp -r .next/standalone/* deploy/ && cp -r .next/static deploy/.next/static && [ -d public ] && cp -r public deploy/public || true",
     "start": "node .next/standalone/server.js",
     "postbuild": "next-sitemap",
     "lint": "next lint"
