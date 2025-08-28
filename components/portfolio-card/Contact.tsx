@@ -58,25 +58,7 @@ const Contact = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [contactEmail, setContactEmail] = useState('');
-
-  // Fetch contact email from API on component mount
-  React.useEffect(() => {
-    const fetchContactInfo = async () => {
-      try {
-        const response = await fetch('/api/contact');
-        const data = await response.json();
-        if (data.email) {
-          setContactEmail(data.email);
-        }
-      } catch (error) {
-        console.error('Error fetching contact info:', error);
-      }
-    };
-    
-    fetchContactInfo();
-  }, []);
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -88,28 +70,26 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setStatus('idle');
 
     try {
-      if (!contactEmail) {
-        console.error('Contact email not available');
-        setIsSubmitting(false);
-        return;
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send');
       }
 
-      // Create mailto link with form data
-      const mailtoLink = `mailto:${contactEmail}?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
-        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-      )}`;
-      
-      // Open default email client
-      window.location.href = mailtoLink;
-      
-      setIsSubmitted(true);
+      setStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
       console.error('Error sending email:', error);
+      setStatus('error');
     }
-    
+
     setIsSubmitting(false);
   };
 
@@ -126,12 +106,22 @@ const Contact = () => {
         viewport={{ once: false, amount: 0.25 }}
       >
         <ContainerSlideIn variants={fadeIn("left", "tween", 1.4, 1)}>
-          {isSubmitted ? (
+          {status === 'success' ? (
             <div className="text-center space-y-4">
               <h2 className="text-xl text-primary">{t.contact.thankYou}</h2>
-              <p className="text-content">{t.contact.emailOpened}</p>
+              <p className="text-content">{t.contact.successMessage}</p>
               <button
-                onClick={() => setIsSubmitted(false)}
+                onClick={() => setStatus('idle')}
+                className="text-accent hover:text-primary transition-colors underline"
+              >
+                {t.contact.sendAnother}
+              </button>
+            </div>
+          ) : status === 'error' ? (
+            <div className="text-center space-y-4">
+              <h2 className="text-xl text-red-500">{t.contact.errorMessage}</h2>
+              <button
+                onClick={() => setStatus('idle')}
                 className="text-accent hover:text-primary transition-colors underline"
               >
                 {t.contact.sendAnother}
