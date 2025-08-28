@@ -61,6 +61,7 @@ export const ContainerSlideIn = ({
   variants,
   ...props
 }: ContainerSlideInProps) => (
+
   <motion.div {...props} variants={variants} className="relative">
     {children}
   </motion.div>
