@@ -4,6 +4,19 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "./useTranslation";
 
+interface Experience {
+  title: string;
+  company: string;
+  period: string;
+  description: string;
+}
+
+interface Education {
+  degree: string;
+  school: string;
+  year: string;
+}
+
 const fadeIn = (direction: string, type: string, delay: number, duration: number) => {
   const getX = () => {
     if (direction === "left") return 100;
@@ -69,7 +82,7 @@ const DetailedAbout = () => {
             {/* Expérience */}
             <section>
               <h3 className="text-primary font-semibold mb-3">{t.labels.experience}</h3>
-              {t.personalInfo.experience.map((exp: any) => (
+              {t.personalInfo.experience.map((exp: Experience) => (
                 <div key={exp.title} className="mb-4">
                   <h4 className="font-medium text-primary">{exp.title}</h4>
                   <p className="text-sm text-content">{exp.company} • {exp.period}</p>
@@ -81,7 +94,7 @@ const DetailedAbout = () => {
             {/* Éducation */}
             <section>
               <h3 className="text-primary font-semibold mb-3">{t.labels.education}</h3>
-              {t.personalInfo.education.map((edu: any) => (
+              {t.personalInfo.education.map((edu: Education) => (
                 <div key={edu.degree} className="mb-3">
                   <h4 className="font-medium text-primary">{edu.degree}</h4>
                   <p className="text-sm text-content">{edu.school} • {edu.year}</p>
