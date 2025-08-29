@@ -1,38 +1,38 @@
-# My Showcase Project
+# ramosf.tech — Portfolio
 
-This project is a personal portfolio built with **Next.js** and **TailwindCSS** to showcase my skills, projects, and CV. It includes various sections like:
+A personal portfolio site built with Next.js.
 
-- **About Me**: A brief introduction and my journey into IT.
-- **Skills**: A list of technical and interpersonal skills I have acquired over time.
-- **Projects**: Featured projects I've worked on, including an AI-powered movie recommendation system and a co-created Unity game.
-- **CV**: Downloadable resume with details about my education and professional experience.
+## Getting Started
 
-## Features
+### Install dependencies
+```bash
+npm install
+```
 
-- **Responsive Design**: Fully optimized for all device sizes.
-- **Animations**: Smooth animations for a better user experience, implemented using Framer Motion.
-- **CV Download**: Users can download my resume directly from the website.
-- **Interactive Projects**: Project cards link to the source code on GitHub or other platforms.
+### Start dev server
+```bash
+npm run dev
+```
 
-## Inspiration
+### Build for production
+```bash
+npm run build
+npm start
+```
 
-The backbone of this project was inspired by the excellent work of [Mif2006](https://github.com/Mif2006). I have adapted and extended it to fit my own needs and personal style.
+## Project Structure
 
-## How to Run Locally
+- `app/` – routes & pages
+- `components/` – UI building blocks  
+- `public/` – static assets
+- `styles/` – global styles
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Lip1200/my-showcase.git
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Run the development server:
-   ```bash
-   npm run dev
-   ```
+## Credits
 
-## License
+This site intentionally recreates the original design by Keita Yamada (p5aholic).  
+All design credit goes to him; this repository only contains my personal implementation.
 
-This project is licensed under the MIT License. Feel free to use, modify, or distribute it as needed.
+**GitHub:** https://github.com/p5aholic  
+**Website:** https://p5aholic.me
+
+

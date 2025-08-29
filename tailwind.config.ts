@@ -9,8 +9,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#1D4ED8',
-        neutral: '#F3F4F6',
+        main: 'var(--color-main)',
+        content: 'var(--color-content)',
+        primary: 'var(--color-primary)',
+        accent: 'var(--color-accent)',
+        muted: 'var(--color-muted)',
       },
       fontFamily: {
         mono: ['var(--font-inconsolata)', 'monospace'],

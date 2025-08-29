@@ -30,21 +30,22 @@ const Header = ({ currentPage, setCurrentPage }: HeaderProps) => {
 
   return (
     <div className="w-64 h-80 text-content m-7 absolute top-0 left-0">
-      <h1 className="font-light text-4xl pb-2 text-primary">
+      <h1 className="font-light text-4xl pb-2" style={{ color: 'var(--color-primary)' }}>
         {t.personalInfo.name}
       </h1>
       <div 
-        className="flex text-content transition-opacity duration-300"
-        style={{ opacity: titleOpacity }}
+        className="flex transition-opacity duration-300"
+        style={{ opacity: titleOpacity, color: 'var(--color-content)' }}
       >
         <Typewriter text={t.personalInfo.title} delay={400} typeSpeed={70} />
       </div>
       
-      <ul className="list-none cursor-pointer pt-8 text-primary">
+      <ul className="list-none cursor-pointer pt-8" style={{ color: 'var(--color-primary)' }}>
         <li className="pt-3 font-black">
           <button 
             onClick={(e) => handleNavigation('home', e)} 
-            className={`no-underline hover:text-accent transition-colors bg-transparent border-none cursor-pointer font-black ${currentPage === 'home' ? 'text-accent' : 'text-primary'}`}
+            className={`no-underline hover:text-accent transition-colors bg-transparent border-none cursor-pointer font-black ${currentPage === 'home' ? 'text-accent' : ''}`}
+            style={{ color: currentPage === 'home' ? 'var(--color-accent)' : 'var(--color-primary)' }}
           >
             {t.navigation.home}
           </button>

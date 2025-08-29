@@ -13,7 +13,7 @@ const inconsolata = Inconsolata({
 
 export const metadata: Metadata = {
   title: "Filipe. portfolio",
-  description: "Clean Portfolio Card - Design inspired by Keita Yamada",
+  description: "Clean minimalist portfolio card",
 };
 
 export default function PortfolioCardLayout({

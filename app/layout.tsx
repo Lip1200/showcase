@@ -14,7 +14,7 @@ const inconsolata = Inconsolata({
 
 export const metadata: Metadata = {
   title: "Filipe Ramos - Developer",
-  description: "Minimalist portfolio design by Keita Yamada",
+  description: "Minimalist developer portfolio",
 };
 
 export default function RootLayout({
