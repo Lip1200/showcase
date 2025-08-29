@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && npm run build:artifact",
-    "build:artifact": "rm -rf deploy && mkdir -p deploy/.next && cp -r .next/standalone/* deploy/ && cp -r .next/static deploy/.next/static && [ -d public ] && cp -r public deploy/public || true",
-    "start": "node .next/standalone/server.js",
+    "build:artifact": "rm -rf deploy && mkdir -p deploy/.next && cp -r .next/standalone/* deploy/ && rsync -a --delete --exclude='cache' .next/ deploy/.next/ && [ -d public ] && rsync -a public/ deploy/public/ || true",
+    "start": "node deploy/server.js",
     "postbuild": "next-sitemap",
     "lint": "next lint"
   },
