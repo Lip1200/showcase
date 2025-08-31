@@ -25,6 +25,9 @@ const config: Config = {
       },
     },
   },
+  corePlugins: { 
+    preflight: true 
+  }, // important - ensures UA styles are reset
   plugins: [],
 }
 export default config

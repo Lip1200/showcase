@@ -1,5 +1,6 @@
 /* Thème variables */
 [data-theme="dark"] {
+  --color-main: hsl(0, 0%, 5%);
   --color-bg: hsl(0, 0%, 5%);
   --color-primary: #ffffff;
   --color-content: #c3c3c3;
@@ -10,6 +11,7 @@
 }
 
 [data-theme="light"] {
+  --color-main: #ffffff;
   --color-bg: #ffffff;
   --color-primary: #000000;
   --color-content: #666666;
@@ -20,6 +22,7 @@
 }
 
 [data-theme="monospaced"] {
+  --color-main: hsl(0, 0%, 5%);
   --color-bg: hsl(0, 0%, 5%);
   --color-primary: #c3c3c3;
   --color-content: #c3c3c3;
@@ -60,6 +63,18 @@
 
 .border-content {
   border-color: var(--color-border);
+}
+
+/* Force link color inheritance in themed components */
+[data-theme] a,
+[data-theme] a:visited,
+[data-theme] a:active {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+[data-theme] a:hover {
+  text-decoration: underline !important;
 }
 
 /* Responsive adjustments */

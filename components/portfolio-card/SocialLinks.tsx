@@ -67,7 +67,8 @@ const SocialLinks = () => {
             href={link.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-6 h-6 text-content hover:text-accent transition-colors flex items-center justify-center"
+            className="w-6 h-6 text-current no-underline hover:opacity-70 transition-all flex items-center justify-center"
+            style={{ color: 'var(--color-content)' }}
             title={link.name}
           >
             {link.icon}

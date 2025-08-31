@@ -132,7 +132,7 @@ const Projects = () => {
                 <Link 
                   href={exp.url} 
                   target="_blank" 
-                  className="hover:opacity-70 transition-opacity"
+                  className="text-current no-underline hover:opacity-70 transition-opacity"
                   title={`View on ${getPlatformInfo(exp.url).type}`}
                 >
                   <div className="bg-primary rounded-full w-6 h-6 cursor-pointer flex items-center justify-center text-bg">
