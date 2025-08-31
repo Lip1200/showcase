@@ -22,6 +22,7 @@ jobs:
           echo "Contents of deploy/:"
           ls -la deploy || (echo "deploy/ missing" && exit 1)
 
+      # Assure que le dossier cible existe côté serveur (on déploie dans .../deploy)
       - name: Ensure remote directory exists
         uses: appleboy/ssh-action@v1.2.0
         with:
@@ -30,16 +31,37 @@ jobs:
           password: ${{ secrets.DEPLOY_KEY_PASS }}
           port: 22
           script: |
-            mkdir -p "${{ secrets.DEPLOY_PATH }}/.next" \
-                     "${{ secrets.DEPLOY_PATH }}/public"
+            mkdir -p "${{ secrets.DEPLOY_PATH }}/deploy"
 
+      # Upload des artefacts standalone
       - name: SFTP upload (deploy/)
         uses: wlixcc/SFTP-Deploy-Action@v1.2.6
         with:
-          server:   ${{ secrets.DEPLOY_HOST }}
+          server:     ${{ secrets.DEPLOY_HOST }}
+          username:   ${{ secrets.DEPLOY_USER }}
+          password:   ${{ secrets.DEPLOY_KEY_PASS }}
+          port:       22
+          sftp_only:  true
+          local_path: "deploy"                           # le dossier local
+          remote_path: "${{ secrets.DEPLOY_PATH }}/"     # va créer/écraser .../deploy sur le serveur
+
+      # Écrit le fichier .env SUR LE SERVEUR (à partir des GitHub Secrets)
+      - name: Write .env on server
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host:     ${{ secrets.DEPLOY_HOST }}
           username: ${{ secrets.DEPLOY_USER }}
           password: ${{ secrets.DEPLOY_KEY_PASS }}
           port: 22
-          sftp_only: true
-          local_path: "deploy"                     
-          remote_path: "${{ secrets.DEPLOY_PATH }}/" 
+          script: |
+            cat > "${{ secrets.DEPLOY_PATH }}/deploy/.env" << 'EOF'
+            SMTP_HOST=${{ secrets.SMTP_HOST }}
+            SMTP_PORT=${{ secrets.SMTP_PORT }}
+            SMTP_SECURE=${{ secrets.SMTP_SECURE }}
+            SMTP_USER=${{ secrets.SMTP_USER }}
+            SMTP_PASS=${{ secrets.SMTP_PASS }}
+            SMTP_FROM=${{ secrets.SMTP_FROM }}
+            CONTACT_EMAIL=${{ secrets.CONTACT_EMAIL }}
+
+            EOF
+            chmod 600 "${{ secrets.DEPLOY_PATH }}/deploy/.env"
