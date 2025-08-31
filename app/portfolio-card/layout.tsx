@@ -3,7 +3,6 @@ import { Inconsolata } from "next/font/google";
 import React from "react";
 import { ThemeProvider } from "@/components/portfolio-card/ThemeProvider";
 import ThemeToggle from "@/components/portfolio-card/ThemeToggle";
-import "@/components/portfolio-card/themes.css";
 
 const inconsolata = Inconsolata({ 
   subsets: ["latin"],
@@ -23,7 +22,7 @@ export default function PortfolioCardLayout({
 }>) {
   return (
     <html lang="en" className={inconsolata.variable}>
-      <body className={`${inconsolata.className} font-mono bg-main overflow-hidden`}>
+      <body className={`${inconsolata.className} font-mono bg-white dark:bg-neutral-900 overflow-hidden`}>
         <ThemeProvider>
           <ThemeToggle />
           {children}

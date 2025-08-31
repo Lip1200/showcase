@@ -12,11 +12,11 @@ interface ContainerProps {
 
 const Container: React.FC<ContainerProps> = ({ children }) => {
   return (
-    <div className="min-h-screen w-full bg-main font-mono p-[25px]">
+    <div className="min-h-screen w-full bg-white dark:bg-neutral-900 font-mono p-[25px]">
       <div className="relative">
         <LanguageToggle />
         <motion.div 
-          className="w-full h-[calc(100vh-50px)] bg-main border border-content relative overflow-hidden"
+          className="w-full h-[calc(100vh-50px)] bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 relative overflow-hidden"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, ease: "easeInOut" }}

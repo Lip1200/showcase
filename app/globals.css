@@ -2,48 +2,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "../components/portfolio-card/themes.css";
 
-/* Fix: no blue links in prod */
-a, a:visited, a:active {
-  color: inherit;
-  text-decoration: none;
-}
-a:hover { 
-  text-decoration: underline; 
-}
-
-/* Additional link color utilities */
-.link-inherit { color: inherit !important; }
-.link-current { color: currentColor !important; }
-.link-no-decoration { text-decoration: none !important; }
-
-.cursive {
-  font-family: "Cedarville Cursive", cursive;
+/* Règles scopées dans des layers pour garder la priorité maîtrisée */
+@layer base {
+  html { 
+    color-scheme: light dark;
+    scroll-behavior: smooth;
+  }
+  body { 
+    @apply antialiased; 
+  }
 }
 
-/* Utility classes */
-.border-gray-300 {
-  border: 1px solid #d1d5db;
-}
-
-.bg-gray-100 {
-  background-color: #f3f4f6;
-}
-
-.hover\:bg-gray-200:hover {
-  background-color: #e5e7eb;
-}
-
-/* Hide scrollbar for IE, Edge and Firefox */
-.scrollbar-hidden {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
-.scrollbar-hidden::-webkit-scrollbar {
-  display: none;
-}
-
-html {
-  scroll-behavior: smooth;
+@layer components {
+  /* Liens: plus de bleu UA, et comportement uniforme */
+  .link { 
+    @apply text-current no-underline hover:underline; 
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .scrollbar-hidden {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
 }

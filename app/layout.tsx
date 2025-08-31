@@ -23,8 +23,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inconsolata.variable}>
-      <body className={`${inter.className} bg-main overflow-hidden`}>
+    <html lang="en" className={`${inconsolata.variable} dark`}>
+      <body className={`${inter.className} bg-neutral-950 text-neutral-200 overflow-hidden`}>
         <ThemeProvider>
           <LanguageProvider>
             {children}

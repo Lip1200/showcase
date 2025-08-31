@@ -32,9 +32,10 @@ export const projects = [
 export const personalInfo = {
   name: "Filipe Ramos",
   title: ".developer ",
-  email: "***REMOVED***",
+  // email reste privé dans .env
   github: "https://github.com/Lip1200",
-  linkedin: "https://www.linkedin.com/in/filipe-lip", // Ajustez selon votre profil
+  gitlab: "https://gitlab.unige.ch/Filipe.Ramos",
+  linkedin: "https://www.linkedin.com/in/lip1200/",
   description: "Spécialiste IT et développeur full-stack.",
   longDescription: `Ayant travaillé pendant plus d'une décennie comme éducateur spécialisé, j'ai perfectionné des compétences interpersonnelles et de gestion critiques. Ma transition de carrière vers l'IT m'a permis de trouver la stimulation intellectuelle que je recherchais, et je développe actuellement mon expertise en tant qu'ingénieur IA.`,
   skills: {

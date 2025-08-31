@@ -94,9 +94,9 @@ const Contact = () => {
   };
 
   return (
-    <div className="w-[58%] h-[60%] text-content absolute top-[25%] right-[5%] font-mono z-[100]">
+    <div className="w-[58%] h-[60%] text-black dark:text-neutral-200 absolute top-[25%] right-[5%] font-mono z-[100]">
       {/* Fade gradient en haut */}
-      <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-bg to-transparent z-10 pointer-events-none"></div>
+      <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-white dark:from-neutral-900 to-transparent z-10 pointer-events-none"></div>
       
       <motion.div 
         className="h-full overflow-y-auto overflow-x-hidden p-4 portfolio-scroll"
@@ -108,11 +108,11 @@ const Contact = () => {
         <ContainerSlideIn variants={fadeIn("left", "tween", 1.4, 1)}>
           {status === 'success' ? (
             <div className="text-center space-y-4">
-              <h2 className="text-xl text-primary">{t.contact.thankYou}</h2>
-              <p className="text-content">{t.contact.successMessage}</p>
+              <h2 className="text-xl text-black dark:text-white">{t.contact.thankYou}</h2>
+              <p className="text-black dark:text-neutral-200">{t.contact.successMessage}</p>
               <button
                 onClick={() => setStatus('idle')}
-                className="text-accent hover:text-primary transition-colors underline"
+                className="text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white transition-colors underline"
               >
                 {t.contact.sendAnother}
               </button>
@@ -122,7 +122,7 @@ const Contact = () => {
               <h2 className="text-xl text-red-500">{t.contact.errorMessage}</h2>
               <button
                 onClick={() => setStatus('idle')}
-                className="text-accent hover:text-primary transition-colors underline"
+                className="text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white transition-colors underline"
               >
                 {t.contact.sendAnother}
               </button>
@@ -130,7 +130,7 @@ const Contact = () => {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-primary mb-2">
+                <label htmlFor="name" className="block text-sm font-medium text-black dark:text-white mb-2">
                   {t.contact.name}
                 </label>
                 <input
@@ -140,13 +140,13 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 py-2 bg-transparent border border-content text-content focus:border-primary focus:outline-none text-sm font-mono"
+                  className="w-full px-3 py-2 bg-transparent border border-neutral-400 dark:border-neutral-600 text-black dark:text-neutral-200 focus:border-black dark:focus:border-white focus:outline-none text-sm font-mono"
                   placeholder={t.contact.namePlaceholder}
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-primary mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-black dark:text-white mb-2">
                   {t.contact.email}
                 </label>
                 <input
@@ -156,13 +156,13 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 py-2 bg-transparent border border-content text-content focus:border-primary focus:outline-none text-sm font-mono"
+                  className="w-full px-3 py-2 bg-transparent border border-neutral-400 dark:border-neutral-600 text-black dark:text-neutral-200 focus:border-black dark:focus:border-white focus:outline-none text-sm font-mono"
                   placeholder={t.contact.emailPlaceholder}
                 />
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-primary mb-2">
+                <label htmlFor="subject" className="block text-sm font-medium text-black dark:text-white mb-2">
                   {t.contact.subject}
                 </label>
                 <input
@@ -172,13 +172,13 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 py-2 bg-transparent border border-content text-content focus:border-primary focus:outline-none text-sm font-mono"
+                  className="w-full px-3 py-2 bg-transparent border border-neutral-400 dark:border-neutral-600 text-black dark:text-neutral-200 focus:border-black dark:focus:border-white focus:outline-none text-sm font-mono"
                   placeholder={t.contact.subjectPlaceholder}
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-primary mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-black dark:text-white mb-2">
                   {t.contact.message}
                 </label>
                 <textarea
@@ -188,7 +188,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-3 py-2 bg-transparent border border-content text-content focus:border-primary focus:outline-none text-sm font-mono resize-none"
+                  className="w-full px-3 py-2 bg-transparent border border-neutral-400 dark:border-neutral-600 text-black dark:text-neutral-200 focus:border-black dark:focus:border-white focus:outline-none text-sm font-mono resize-none"
                   placeholder={t.contact.messagePlaceholder}
                 />
               </div>
@@ -196,7 +196,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-2 px-4 bg-transparent border border-primary text-primary hover:bg-primary hover:text-bg transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-mono text-sm"
+                className="w-full py-2 px-4 bg-transparent border border-black dark:border-white text-black dark:text-white hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-mono text-sm"
               >
                 {isSubmitting ? t.contact.sending : t.contact.send}
               </button>
@@ -206,7 +206,7 @@ const Contact = () => {
       </motion.div>
       
       {/* Fade gradient en bas */}
-      <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-bg to-transparent z-10 pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-white dark:from-neutral-900 to-transparent z-10 pointer-events-none"></div>
     </div>
   );
 };

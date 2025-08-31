@@ -29,23 +29,26 @@ const Header = ({ currentPage, setCurrentPage }: HeaderProps) => {
   };
 
   return (
-    <div className="w-64 h-80 text-content m-7 absolute top-0 left-0">
-      <h1 className="font-light text-4xl pb-2" style={{ color: 'var(--color-primary)' }}>
+    <div className="w-64 h-80 text-black dark:text-neutral-200 m-7 absolute top-0 left-0">
+      <h1 className="font-light text-4xl pb-2 text-black dark:text-white">
         {t.personalInfo.name}
       </h1>
       <div 
-        className="flex transition-opacity duration-300"
-        style={{ opacity: titleOpacity, color: 'var(--color-content)' }}
+        className="flex transition-opacity duration-300 text-neutral-700 dark:text-neutral-300"
+        style={{ opacity: titleOpacity }}
       >
         <Typewriter text={t.personalInfo.title} delay={400} typeSpeed={70} />
       </div>
       
-      <ul className="list-none cursor-pointer pt-8" style={{ color: 'var(--color-primary)' }}>
+      <ul className="list-none cursor-pointer pt-8">
         <li className="pt-3 font-black">
           <button 
             onClick={(e) => handleNavigation('home', e)} 
-            className={`no-underline hover:text-accent transition-colors bg-transparent border-none cursor-pointer font-black ${currentPage === 'home' ? 'text-accent' : ''}`}
-            style={{ color: currentPage === 'home' ? 'var(--color-accent)' : 'var(--color-primary)' }}
+            className={`no-underline hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors bg-transparent border-none cursor-pointer font-black ${
+              currentPage === 'home' 
+                ? 'text-neutral-700 dark:text-neutral-300' 
+                : 'text-black dark:text-white'
+            }`}
           >
             {t.navigation.home}
           </button>
@@ -53,7 +56,11 @@ const Header = ({ currentPage, setCurrentPage }: HeaderProps) => {
         <li className="pt-3 font-black">
           <button 
             onClick={(e) => handleNavigation('projects', e)} 
-            className={`no-underline hover:text-accent transition-colors bg-transparent border-none cursor-pointer font-black ${currentPage === 'projects' ? 'text-accent' : 'text-primary'}`}
+            className={`no-underline hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors bg-transparent border-none cursor-pointer font-black ${
+              currentPage === 'projects' 
+                ? 'text-neutral-700 dark:text-neutral-300' 
+                : 'text-black dark:text-white'
+            }`}
           >
             {t.navigation.projects}
           </button>
@@ -61,7 +68,11 @@ const Header = ({ currentPage, setCurrentPage }: HeaderProps) => {
         <li className="pt-3 font-black">
           <button 
             onClick={(e) => handleNavigation('about', e)} 
-            className={`no-underline hover:text-accent transition-colors bg-transparent border-none cursor-pointer font-black ${currentPage === 'about' ? 'text-accent' : 'text-primary'}`}
+            className={`no-underline hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors bg-transparent border-none cursor-pointer font-black ${
+              currentPage === 'about' 
+                ? 'text-neutral-700 dark:text-neutral-300' 
+                : 'text-black dark:text-white'
+            }`}
           >
             {t.navigation.about}
           </button>
@@ -69,7 +80,11 @@ const Header = ({ currentPage, setCurrentPage }: HeaderProps) => {
         <li className="pt-3 font-black">
           <button 
             onClick={(e) => handleNavigation('contact', e)} 
-            className={`no-underline hover:text-accent transition-colors bg-transparent border-none cursor-pointer font-black ${currentPage === 'contact' ? 'text-accent' : 'text-primary'}`}
+            className={`no-underline hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors bg-transparent border-none cursor-pointer font-black ${
+              currentPage === 'contact' 
+                ? 'text-neutral-700 dark:text-neutral-300' 
+                : 'text-black dark:text-white'
+            }`}
           >
             {t.navigation.contact}
           </button>

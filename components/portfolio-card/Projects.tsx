@@ -105,9 +105,9 @@ const Projects = () => {
   };
   
   return (
-    <div className="w-[58%] h-[60%] text-content absolute top-[25%] right-[5%] font-mono z-[100]">
+    <div className="w-[58%] h-[60%] text-black dark:text-neutral-200 absolute top-[25%] right-[5%] font-mono z-[100]">
       {/* Fade gradient en haut */}
-      <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-bg to-transparent z-10 pointer-events-none"></div>
+      <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-white dark:from-neutral-900 to-transparent z-10 pointer-events-none"></div>
       
       {/* Contenu avec scroll */}
       <motion.div
@@ -122,7 +122,7 @@ const Projects = () => {
             key={exp.name}
             variants={fadeIn("left", "tween", (i + 1) * 0.2, 0.8)}
           >
-            <div className="text-content m-7">
+            <div className="text-black dark:text-neutral-200 m-7">
               <h3 className="font-normal">• {exp.name}</h3>
               <p className="font-light text-sm">{exp.projects}</p>
               <p className="text-xs font-bold float-right mt-1.5">
@@ -135,7 +135,7 @@ const Projects = () => {
                   className="text-current no-underline hover:opacity-70 transition-opacity"
                   title={`View on ${getPlatformInfo(exp.url).type}`}
                 >
-                  <div className="bg-primary rounded-full w-6 h-6 cursor-pointer flex items-center justify-center text-bg">
+                  <div className="bg-neutral-900 dark:bg-white rounded-full w-6 h-6 cursor-pointer flex items-center justify-center text-white dark:text-neutral-900">
                     {getPlatformInfo(exp.url).icon}
                   </div>
                 </Link>
@@ -146,7 +146,7 @@ const Projects = () => {
       </motion.div>
       
       {/* Fade gradient en bas */}
-      <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-bg to-transparent z-10 pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-white dark:from-neutral-900 to-transparent z-10 pointer-events-none"></div>
     </div>
   );
 };

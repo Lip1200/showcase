@@ -23,19 +23,29 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const [theme, setTheme] = useState<Theme>("dark");
 
   useEffect(() => {
-    // Set default theme immediately
-    document.documentElement.setAttribute("data-theme", "dark");
+    // Set default theme immediately for Tailwind
+    document.documentElement.classList.add("dark");
     
     const savedTheme = localStorage.getItem("portfolio-theme") as Theme;
     if (savedTheme) {
       setTheme(savedTheme);
-      document.documentElement.setAttribute("data-theme", savedTheme);
+      // Update classes for Tailwind dark mode
+      if (savedTheme === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
     }
   }, []);
 
   useEffect(() => {
     localStorage.setItem("portfolio-theme", theme);
-    document.documentElement.setAttribute("data-theme", theme);
+    // Update classes for Tailwind dark mode
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
   }, [theme]);
 
   const value = useMemo(() => ({ theme, setTheme }), [theme]);
