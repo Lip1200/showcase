@@ -1,5 +1,12 @@
 export const projects = [
   {
+    name: "AgriVisio Deep Learning",
+    projects: "Classification d'images satellitaires • CNN + Vision Transformers • Keras/PyTorch",
+    year: "Projet éducatif, 2024.",
+    url: "https://github.com/Lip1200/agri_visio",
+    web: "https://github.com/Lip1200/agri_visio",
+  },
+  {
     name: "AI Movie Recommendation",
     projects: "Système de recommandation de films alimenté par l'IA • ChromaDB + Flask",
     year: "Projet académique, 2024.",

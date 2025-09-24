@@ -2,6 +2,13 @@ export const translations = {
   fr: {
     projects: [
       {
+        name: "AgriVisio Deep Learning",
+        projects: "Classification d'images satellitaires • CNN + Vision Transformers • Keras/PyTorch",
+        year: "Projet éducatif, 2024.",
+        url: "https://github.com/Lip1200/agri_visio",
+        web: "https://github.com/Lip1200/agri_visio",
+      },
+      {
         name: "NL2SPARQL Calvin",
         projects: "Conversion automatique français → SPARQL • LLM + GraphDB + Qdrant",
         year: "Travail de Bachelor, 2025.",
@@ -136,6 +143,13 @@ export const translations = {
   },
   en: {
     projects: [
+      {
+        name: "AgriVisio Deep Learning",
+        projects: "Satellite imagery land classification • CNN + Vision Transformers • Keras/PyTorch",
+        year: "Educational project, 2024.",
+        url: "https://github.com/Lip1200/agri_visio",
+        web: "https://github.com/Lip1200/agri_visio",
+      },
       {
         name: "NL2SPARQL Calvin",
         projects: "Automatic French → SPARQL conversion • LLM + GraphDB + Qdrant",
