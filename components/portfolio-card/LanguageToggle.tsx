@@ -16,7 +16,7 @@ const LanguageToggle = () => {
     <div className="absolute top-[-30px] right-0 z-50">
       <button
         onClick={toggleLanguage}
-        className="text-xs font-mono text-content hover:text-primary transition-colors"
+        className="text-xs font-mono text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white transition-colors"
       >
         {displayLanguage}
       </button>

@@ -1,5 +1,12 @@
 export const projects = [
   {
+    name: "Kubernetes Online Boutique",
+    projects: "E-commerce microservices • Kubernetes + Helm + Docker • Go/Python/Node.js/C#/Java",
+    year: "Projet académique, 2024.",
+    url: "https://github.com/Lip1200/k8s_project",
+    web: "https://github.com/Lip1200/k8s_project",
+  },
+  {
     name: "AgriVisio Deep Learning",
     projects: "Classification d'images satellitaires • CNN + Vision Transformers • Keras/PyTorch",
     year: "Projet éducatif, 2024.",
@@ -55,9 +62,9 @@ export const personalInfo = {
   },
   experience: [
     {
-      title: "AI Engineer en formation",
+      title: "AI Engineer",
       company: "IBM Badge Program",
-      period: "2024 - Actuel",
+      period: "2024 - 2025",
       description: "Formation avancée en intelligence artificielle et machine learning"
     },
     {

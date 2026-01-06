@@ -2,6 +2,13 @@ export const translations = {
   fr: {
     projects: [
       {
+        name: "Kubernetes Online Boutique",
+        projects: "Microservices e-commerce • Kubernetes + Helm + Docker • Go/Python/Node.js/C#/Java",
+        year: "Projet académique, 2024.",
+        url: "https://github.com/Lip1200/k8s_project",
+        web: "https://github.com/Lip1200/k8s_project",
+      },
+      {
         name: "AgriVisio Deep Learning",
         projects: "Classification d'images satellitaires • CNN + Vision Transformers • Keras/PyTorch",
         year: "Projet éducatif, 2024.",
@@ -143,6 +150,13 @@ export const translations = {
   },
   en: {
     projects: [
+      {
+        name: "Kubernetes Online Boutique",
+        projects: "E-commerce microservices • Kubernetes + Helm + Docker • Go/Python/Node.js/C#/Java",
+        year: "Academic project, 2024.",
+        url: "https://github.com/Lip1200/k8s_project",
+        web: "https://github.com/Lip1200/k8s_project",
+      },
       {
         name: "AgriVisio Deep Learning",
         projects: "Satellite imagery land classification • CNN + Vision Transformers • Keras/PyTorch",
