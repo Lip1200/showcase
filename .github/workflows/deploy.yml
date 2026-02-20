@@ -16,6 +16,9 @@ jobs:
           node-version: 20
 
       - name: Build (Next.js standalone ➜ deploy/)
+        env:
+          NEXT_PUBLIC_MATOMO_URL: ${{ secrets.NEXT_PUBLIC_MATOMO_URL }}
+          NEXT_PUBLIC_MATOMO_CONTAINER_ID: ${{ secrets.NEXT_PUBLIC_MATOMO_CONTAINER_ID }}
         run: |
           npm ci
           npm run build
