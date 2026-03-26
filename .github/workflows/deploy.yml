@@ -22,7 +22,7 @@ jobs:
           echo "Contents of deploy/:"
           ls -la deploy || (echo "deploy/ missing" && exit 1)
 
-      # Prépare le dossier cible côté serveur (backup ancien projet)
+      # Prépare le dossier cible côté serveur (cleanup ancien projet)
       - name: Prepare remote directory
         uses: appleboy/ssh-action@v1.2.0
         with:
@@ -33,10 +33,8 @@ jobs:
           script: |
             cd "${{ secrets.DEPLOY_PATH }}"
             mkdir -p "${{ secrets.DEPLOY_PATH }}/backup"
-            # Backup des fichiers existants (optionnel)
-            [ -f package.json ] && cp package.json backup/package.json.bak || true
-            # Nettoyer les anciens fichiers (sauf .env et publics)
-            find . -maxdepth 1 -type f -not -name '.env' -delete 2>/dev/null || true
+            # Nettoyer les anciens fichiers
+            find . -maxdepth 1 -type f -delete 2>/dev/null || true
             rm -rf src/ views/ dist/ node_modules/ .next/ test/ 2>/dev/null || true
 
       # Upload des artefacts standalone
@@ -51,42 +49,8 @@ jobs:
           local_path: "deploy"                           # le dossier local
           remote_path: "${{ secrets.DEPLOY_PATH }}"      # upload directement dans le dossier cible
 
-      # Écrit le fichier .env SUR LE SERVEUR (à partir des GitHub Secrets)
-      - name: Write .env on server
-        uses: appleboy/ssh-action@v1.2.0
-        with:
-          host:     ${{ secrets.DEPLOY_HOST }}
-          username: ${{ secrets.DEPLOY_USER }}
-          password: ${{ secrets.DEPLOY_KEY_PASS }}
-          port: 22
-          script: |
-            cat > "${{ secrets.DEPLOY_PATH }}/.env" << 'EOF'
-            SMTP_HOST=${{ secrets.SMTP_HOST }}
-            SMTP_PORT=${{ secrets.SMTP_PORT }}
-            SMTP_SECURE=${{ secrets.SMTP_SECURE }}
-            SMTP_USER=${{ secrets.SMTP_USER }}
-            SMTP_PASS=${{ secrets.SMTP_PASS }}
-            SMTP_FROM=${{ secrets.SMTP_FROM }}
-            CONTACT_EMAIL=${{ secrets.CONTACT_EMAIL }}
-
-            EOF
-            chmod 600 "${{ secrets.DEPLOY_PATH }}/.env"
-            echo "✅ Deploy completed! Files uploaded to ${{ secrets.DEPLOY_PATH }}"
-
-      # Installe les dépendances et redémarre l'application
-      - name: Install dependencies and restart application
-        uses: appleboy/ssh-action@v1.2.0
-        with:
-          host:     ${{ secrets.DEPLOY_HOST }}
-          username: ${{ secrets.DEPLOY_USER }}
-          password: ${{ secrets.DEPLOY_KEY_PASS }}
-          port: 22
-          script: |
-            cd "${{ secrets.DEPLOY_PATH }}/deploy"
-            npm install --omit=dev
-            if command -v pm2 &> /dev/null; then
-              pm2 restart showcase || pm2 start server.js --name showcase
-            else
-              pkill -f "node server.js" || true
-              nohup node server.js > /tmp/showcase.log 2>&1 &
-            fi
+      - name: Deploy completed
+        run: |
+          echo "✅ Deploy completed! Files uploaded to ${{ secrets.DEPLOY_PATH }}"
+          echo "Run these commands on the server:"
+          echo "cd ${{ secrets.DEPLOY_PATH }} && npm install --omit=dev && nohup node server.js > server.log 2>&1 &"
