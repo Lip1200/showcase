@@ -65,21 +65,5 @@ jobs:
 
             EOF
             chmod 600 "${{ secrets.DEPLOY_PATH }}/deploy/.env"
-
-      # Installe les dépendances et redémarre l'application
-      - name: Install dependencies and restart application
-        uses: appleboy/ssh-action@v1.2.0
-        with:
-          host:     ${{ secrets.DEPLOY_HOST }}
-          username: ${{ secrets.DEPLOY_USER }}
-          password: ${{ secrets.DEPLOY_KEY_PASS }}
-          port: 22
-          script: |
-            cd "${{ secrets.DEPLOY_PATH }}/deploy"
-            npm install --omit=dev
-            if command -v pm2 &> /dev/null; then
-              pm2 restart showcase || pm2 start server.js --name showcase
-            else
-              pkill -f "node server.js" || true
-              nohup node server.js > /tmp/showcase.log 2>&1 &
-            fi
+            echo "✅ Deploy completed! Run these commands on the server:"
+            echo "cd ${{ secrets.DEPLOY_PATH }}/deploy && npm install --omit=dev && node server.js"
