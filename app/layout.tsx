@@ -4,7 +4,7 @@ import "./globals.css";
 import React from "react";
 import { ThemeProvider } from "../components/portfolio-card/ThemeProvider";
 import { LanguageProvider } from "../components/portfolio-card/LanguageProvider";
-import MatomoAnalytics from "../components/MatomoAnalytics";
+
 
 const inter = Inter({ subsets: ["latin"] });
 const inconsolata = Inconsolata({ 
@@ -31,7 +31,7 @@ export default function RootLayout({
             {children}
           </LanguageProvider>
         </ThemeProvider>
-        <MatomoAnalytics />
+
       </body>
     </html>
   );

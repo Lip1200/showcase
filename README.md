@@ -1,4 +1,4 @@
-# ramosf.tech — Portfolio
+# ramosf.ch — Portfolio
 
 A personal portfolio site built with Next.js.
 
