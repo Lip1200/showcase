@@ -23,18 +23,6 @@ jobs:
           tar -czf ../deploy.tar.gz .
           cd ..
 
-      - name: Debug remote paths
-        uses: appleboy/ssh-action@v1.2.0
-        with:
-          host:     ${{ secrets.DEPLOY_HOST }}
-          username: ${{ secrets.DEPLOY_USER }}
-          password: ${{ secrets.DEPLOY_KEY_PASS }}
-          port: 22
-          script: |
-            echo "HOME=$HOME"
-            find /srv -maxdepth 4 -type d 2>/dev/null | head -20
-            find /home -maxdepth 4 -type d 2>/dev/null | head -20
-
       - name: Prepare remote directory
         uses: appleboy/ssh-action@v1.2.0
         with:
@@ -44,9 +32,9 @@ jobs:
           port: 22
           script: |
             set -e
+            mkdir -p "${{ secrets.DEPLOY_PATH }}"
             cd "${{ secrets.DEPLOY_PATH }}"
-            mkdir -p backup
-            find . -maxdepth 1 -mindepth 1 ! -name 'backup' -exec rm -rf {} + 2>/dev/null || true
+            find . -maxdepth 1 -mindepth 1 -exec rm -rf {} + 2>/dev/null || true
 
       - name: SFTP upload (deploy.tar.gz)
         env:
