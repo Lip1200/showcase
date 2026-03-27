@@ -46,8 +46,8 @@ jobs:
           password:   ${{ secrets.DEPLOY_KEY_PASS }}
           port:       22
           sftp_only:  true
-          local_path: "deploy"                           # le dossier local
-          remote_path: "${{ secrets.DEPLOY_PATH }}"      # upload directement dans le dossier cible
+          local_path: './deploy/*'                         
+          remote_path: "${{ secrets.DEPLOY_PATH }}"      
 
       - name: Deploy completed
         run: |
