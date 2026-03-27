@@ -31,9 +31,9 @@ jobs:
           password: ${{ secrets.DEPLOY_KEY_PASS }}
           port: 22
           script: |
+            mkdir -p "${{ secrets.DEPLOY_PATH }}"
             cd "${{ secrets.DEPLOY_PATH }}"
             mkdir -p backup
-            # Vider le dossier en conservant seulement le backup
             find . -maxdepth 1 -mindepth 1 ! -name 'backup' -exec rm -rf {} + 2>/dev/null || true
 
       - name: SFTP upload (deploy.tar.gz)
@@ -57,4 +57,3 @@ jobs:
             cd "${{ secrets.DEPLOY_PATH }}"
             tar -xzf deploy.tar.gz
             rm deploy.tar.gz
-            npm install --omit=dev
