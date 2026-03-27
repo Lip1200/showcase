@@ -31,7 +31,7 @@ jobs:
           password: ${{ secrets.DEPLOY_KEY_PASS }}
           port: 22
           script: |
-            mkdir -p "${{ secrets.DEPLOY_PATH }}"
+            set -e
             cd "${{ secrets.DEPLOY_PATH }}"
             mkdir -p backup
             find . -maxdepth 1 -mindepth 1 ! -name 'backup' -exec rm -rf {} + 2>/dev/null || true
@@ -46,7 +46,7 @@ jobs:
             sshpass -e sftp -o StrictHostKeyChecking=no \
             ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}
 
-      - name: Extract and Install
+      - name: Extract and Restart
         uses: appleboy/ssh-action@v1.2.0
         with:
           host:     ${{ secrets.DEPLOY_HOST }}
@@ -54,6 +54,7 @@ jobs:
           password: ${{ secrets.DEPLOY_KEY_PASS }}
           port: 22
           script: |
+            set -e
             cd "${{ secrets.DEPLOY_PATH }}"
             tar -xzf deploy.tar.gz
             rm deploy.tar.gz
