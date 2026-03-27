@@ -36,16 +36,13 @@ jobs:
             # Vider le dossier en conservant seulement le backup
             find . -maxdepth 1 -mindepth 1 ! -name 'backup' -exec rm -rf {} + 2>/dev/null || true
 
-      - name: SFTP upload (deploy.tar.gz)
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.6
-        with:
-          server:     ${{ secrets.DEPLOY_HOST }}
-          username:   ${{ secrets.DEPLOY_USER }}
-          password:   ${{ secrets.DEPLOY_KEY_PASS }}
-          port:       22
-          sftp_only:  true
-          local_path: './deploy.tar.gz'
-          remote_path: '${{ secrets.DEPLOY_PATH }}/deploy.tar.gz'
+      - name: SCP upload (deploy.tar.gz)
+        env:
+          SSHPASS: ${{ secrets.DEPLOY_KEY_PASS }}
+        run: |
+          sudo apt-get update -y || true
+          sudo apt-get install -y sshpass
+          sshpass -e scp -o StrictHostKeyChecking=no deploy.tar.gz ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:"${{ secrets.DEPLOY_PATH }}/"
 
       - name: Extract and Install
         uses: appleboy/ssh-action@v1.2.0
