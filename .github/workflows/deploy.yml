@@ -36,13 +36,15 @@ jobs:
             # Vider le dossier en conservant seulement le backup
             find . -maxdepth 1 -mindepth 1 ! -name 'backup' -exec rm -rf {} + 2>/dev/null || true
 
-      - name: SCP upload (deploy.tar.gz)
+      - name: SFTP upload (deploy.tar.gz)
         env:
           SSHPASS: ${{ secrets.DEPLOY_KEY_PASS }}
         run: |
           sudo apt-get update -y || true
           sudo apt-get install -y sshpass
-          sshpass -e scp -o StrictHostKeyChecking=no deploy.tar.gz ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:"${{ secrets.DEPLOY_PATH }}/"
+          echo "put deploy.tar.gz ${{ secrets.DEPLOY_PATH }}/deploy.tar.gz" | \
+            sshpass -e sftp -o StrictHostKeyChecking=no \
+            ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}
 
       - name: Extract and Install
         uses: appleboy/ssh-action@v1.2.0
