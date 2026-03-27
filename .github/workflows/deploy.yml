@@ -45,7 +45,7 @@ jobs:
           port:       22
           sftp_only:  true
           local_path: './deploy.tar.gz'
-          remote_path: "${{ secrets.DEPLOY_PATH }}"
+          remote_path: '${{ secrets.DEPLOY_PATH }}/deploy.tar.gz'
 
       - name: Extract and Install
         uses: appleboy/ssh-action@v1.2.0
