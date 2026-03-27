@@ -59,6 +59,7 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorDetail, setErrorDetail] = useState<string>('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -80,13 +81,16 @@ const Contact = () => {
       });
 
       if (!response.ok) {
-        throw new Error('Failed to send');
+        const data = await response.json().catch(() => ({}));
+        throw new Error(data.error || 'Failed to send');
       }
 
       setStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
-      console.error('Error sending email:', error);
+      const msg = error instanceof Error ? error.message : String(error);
+      console.error('Error sending email:', msg);
+      setErrorDetail(msg);
       setStatus('error');
     }
 
@@ -120,6 +124,7 @@ const Contact = () => {
           ) : status === 'error' ? (
             <div className="text-center space-y-4">
               <h2 className="text-xl text-red-500">{t.contact.errorMessage}</h2>
+              {errorDetail && <p className="text-xs text-red-400 break-all">{errorDetail}</p>}
               <button
                 onClick={() => setStatus('idle')}
                 className="text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white transition-colors underline"
