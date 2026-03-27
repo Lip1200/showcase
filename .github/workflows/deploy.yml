@@ -23,18 +23,6 @@ jobs:
           tar -czf ../deploy.tar.gz .
           cd ..
 
-      - name: Debug remote paths
-        uses: appleboy/ssh-action@v1.2.0
-        with:
-          host:     ${{ secrets.DEPLOY_HOST }}
-          username: ${{ secrets.DEPLOY_USER }}
-          password: ${{ secrets.DEPLOY_KEY_PASS }}
-          port: 22
-          script: |
-            echo "HOME=$HOME"
-            echo "PWD=$(pwd)"
-            ls ~/sites/ 2>/dev/null || echo "no ~/sites/"
-
       - name: Prepare remote directory
         uses: appleboy/ssh-action@v1.2.0
         with:
