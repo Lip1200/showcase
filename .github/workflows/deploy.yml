@@ -1,4 +1,5 @@
-name: Deploy to Infomaniak (SFTP)
+name: Deploy to Infomaniak
+
 on:
   push:
     branches: [ main ]
@@ -15,13 +16,20 @@ jobs:
         with:
           node-version: 24
 
-      - name: Build and Compress (Next.js standalone ➜ deploy.tar.gz)
+      - name: Build
         run: |
           npm ci
           npm run build
-          cd deploy
-          tar -czf ../deploy.tar.gz .
-          cd ..
+
+      - name: Create deploy archive
+        run: |
+          tar -czf deploy.tar.gz \
+            --exclude='.next/cache' \
+            .next \
+            public \
+            package.json \
+            package-lock.json \
+            next.config.js
 
       - name: Prepare remote directory
         uses: appleboy/ssh-action@v1.2.0
@@ -36,17 +44,16 @@ jobs:
             cd "${{ secrets.DEPLOY_PATH }}"
             find . -maxdepth 1 -mindepth 1 -exec rm -rf {} + 2>/dev/null || true
 
-      - name: SFTP upload (deploy.tar.gz)
+      - name: SFTP upload
         env:
           SSHPASS: ${{ secrets.DEPLOY_KEY_PASS }}
         run: |
-          sudo apt-get update -y || true
           sudo apt-get install -y sshpass
           echo "put deploy.tar.gz ${{ secrets.DEPLOY_PATH }}/deploy.tar.gz" | \
             sshpass -e sftp -o StrictHostKeyChecking=no \
             ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}
 
-      - name: Extract and Restart
+      - name: Extract and install
         uses: appleboy/ssh-action@v1.2.0
         with:
           host:     ${{ secrets.DEPLOY_HOST }}
@@ -58,3 +65,4 @@ jobs:
             cd "${{ secrets.DEPLOY_PATH }}"
             tar -xzf deploy.tar.gz
             rm deploy.tar.gz
+            npm ci --omit=dev
