@@ -42,11 +42,19 @@ jobs:
 
       - name: Extract and install
         uses: appleboy/ssh-action@v1.2.0
+        env:
+          CONTACT_EMAIL: ${{ secrets.CONTACT_EMAIL }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          SMTP_SECURE: ${{ secrets.SMTP_SECURE }}
         with:
           host:     ${{ secrets.DEPLOY_HOST }}
           username: ${{ secrets.DEPLOY_USER }}
           password: ${{ secrets.DEPLOY_KEY_PASS }}
           port: 22
+          envs: CONTACT_EMAIL,SMTP_HOST,SMTP_PORT,SMTP_USER,SMTP_PASS,SMTP_SECURE
           script: |
             set -e
             cd "${{ secrets.DEPLOY_PATH }}"
@@ -61,4 +69,8 @@ jobs:
               cp -rn /tmp/next_static_backup/. .next/static/
               rm -rf /tmp/next_static_backup
             fi
+            # Write runtime env vars to .env.local
+            printf 'CONTACT_EMAIL=%s\nSMTP_HOST=%s\nSMTP_PORT=%s\nSMTP_USER=%s\nSMTP_PASS=%s\nSMTP_SECURE=%s\n' \
+              "$CONTACT_EMAIL" "$SMTP_HOST" "$SMTP_PORT" "$SMTP_USER" "$SMTP_PASS" "$SMTP_SECURE" \
+              > .env.local
             npm ci --omit=dev
