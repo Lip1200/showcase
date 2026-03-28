@@ -31,19 +31,6 @@ jobs:
             package-lock.json \
             next.config.js
 
-      - name: Prepare remote directory
-        uses: appleboy/ssh-action@v1.2.0
-        with:
-          host:     ${{ secrets.DEPLOY_HOST }}
-          username: ${{ secrets.DEPLOY_USER }}
-          password: ${{ secrets.DEPLOY_KEY_PASS }}
-          port: 22
-          script: |
-            set -e
-            mkdir -p "${{ secrets.DEPLOY_PATH }}"
-            cd "${{ secrets.DEPLOY_PATH }}"
-            find . -maxdepth 1 -mindepth 1 -exec rm -rf {} + 2>/dev/null || true
-
       - name: SFTP upload
         env:
           SSHPASS: ${{ secrets.DEPLOY_KEY_PASS }}
@@ -63,6 +50,15 @@ jobs:
           script: |
             set -e
             cd "${{ secrets.DEPLOY_PATH }}"
+            # Preserve old static chunks so cached browsers don't get 404s
+            if [ -d .next/static ]; then
+              cp -r .next/static /tmp/next_static_backup
+            fi
             tar -xzf deploy.tar.gz
             rm deploy.tar.gz
+            # Restore old static chunks alongside new ones
+            if [ -d /tmp/next_static_backup ]; then
+              cp -rn /tmp/next_static_backup/. .next/static/
+              rm -rf /tmp/next_static_backup
+            fi
             npm ci --omit=dev
