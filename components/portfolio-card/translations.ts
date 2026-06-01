@@ -80,7 +80,7 @@ export const translations = {
       gitlab: "https://gitlab.unige.ch/Filipe.Ramos",
       linkedin: "https://www.linkedin.com/in/filipe-lip",
       description: "Spécialiste IT et développeur full-stack.",
-      longDescription: `Après plus de dix ans dans l'éducation spécialisée, je mets au service du développement logiciel un leadership éprouvé, une communication claire et une réelle empathie des usages. Je me suis reconverti à l'informatique pour résoudre des problèmes complexes à fort impact ; aujourd'hui, je travaille sur le développement de bout en bout, l'automatisation des déploiements et l'IA mise en pratique.`,
+      longDescription: `Après plus de dix ans dans l'éducation spécialisée, je mets au service du développement logiciel un leadership éprouvé, une communication claire et une réelle empathie des usages. Je finalise actuellement un Master en Systèmes et Services Numériques au CUI (UNIGE) et je suis certifié IBM AI Engineer. Je travaille sur le développement de bout en bout, l'automatisation des déploiements et l'IA mise en pratique.`,
       skills: {
         frontend: ["HTML5", "CSS3", "JavaScript", "TypeScript", "React", "Next.js", "TailwindCSS"],
         backend: ["C","Python", "Java", "Flask", "Node.js", "MySQL", "GraphQL", "SQLAlchemy"],
@@ -91,10 +91,10 @@ export const translations = {
       },
       experience: [
         {
-          title: "AI Engineer en formation",
+          title: "IBM AI Engineer",
           company: "IBM Badge Program",
-          period: "2024 - Actuel",
-          description: "Formation avancée en intelligence artificielle et machine learning"
+          period: "2024 - 2025",
+          description: "Certification professionnelle en intelligence artificielle et machine learning"
         },
         {
           title: "Master en Systèmes et Services Numériques",
@@ -110,6 +110,16 @@ export const translations = {
         }
       ],
       education: [
+        {
+          degree: "Master en Systèmes et Services Numériques",
+          school: "CUI - UNIGE",
+          year: "En cours"
+        },
+        {
+          degree: "IBM AI Engineer Professional Certificate",
+          school: "IBM",
+          year: "2025"
+        },
         {
           degree: "Bachelor en Systèmes d'Information et Science des Services",
           school: "UNIGE",
@@ -250,7 +260,7 @@ export const translations = {
       gitlab: "https://gitlab.unige.ch/Filipe.Ramos",
       linkedin: "https://www.linkedin.com/in/filipe-lip",
       description: "IT Specialist and full-stack developer.",
-      longDescription: `After 10+ years in special education, I bring proven leadership, communication, and stakeholder empathy to engineering. I moved into IT to tackle complex, high-impact problems and now focus on full-stack delivery, automation, and applied AI.`,
+      longDescription: `After 10+ years in special education, I bring proven leadership, communication, and stakeholder empathy to engineering. I am currently finishing a Master's in Digital Systems and Services at CUI (UNIGE) and hold an IBM AI Engineer certification. I focus on full-stack delivery, deployment automation, and applied AI.`,
       skills: {
         frontend: ["HTML5", "CSS3", "JavaScript", "TypeScript", "React", "Next.js", "TailwindCSS"],
         backend: ["C","Python", "Flask", "Node.js", "MySQL", "GraphQL", "SQLAlchemy"],
@@ -261,10 +271,10 @@ export const translations = {
       },
       experience: [
         {
-          title: "AI Engineer in training",
+          title: "IBM AI Engineer",
           company: "IBM Badge Program",
-          period: "2024 - Present",
-          description: "Advanced training in artificial intelligence and machine learning"
+          period: "2024 - 2025",
+          description: "Professional certification in artificial intelligence and machine learning"
         },
         {
           title: "Master in Digital Systems and Services",
@@ -280,6 +290,16 @@ export const translations = {
         }
       ],
       education: [
+        {
+          degree: "Master in Digital Systems and Services",
+          school: "CUI - UNIGE",
+          year: "In progress"
+        },
+        {
+          degree: "IBM AI Engineer Professional Certificate",
+          school: "IBM",
+          year: "2025"
+        },
         {
           degree: "Bachelor in Information Systems and Service Science",
           school: "UNIGE",
