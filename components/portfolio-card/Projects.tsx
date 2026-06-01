@@ -107,7 +107,7 @@ const Projects = () => {
   return (
     <div className="w-[58%] h-[60%] text-black dark:text-neutral-200 absolute top-[25%] right-[5%] font-mono z-[100]">
       {/* Fade gradient en haut */}
-      <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-white dark:from-neutral-900 to-transparent z-10 pointer-events-none"></div>
+      <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-white dark:from-black to-transparent z-10 pointer-events-none"></div>
       
       {/* Contenu avec scroll */}
       <motion.div
@@ -146,7 +146,7 @@ const Projects = () => {
       </motion.div>
       
       {/* Fade gradient en bas */}
-      <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-white dark:from-neutral-900 to-transparent z-10 pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-white dark:from-black to-transparent z-10 pointer-events-none"></div>
     </div>
   );
 };

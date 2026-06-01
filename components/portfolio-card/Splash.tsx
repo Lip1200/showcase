@@ -35,7 +35,7 @@ const Splash = () => {
 
   return (
     <motion.div
-      className="h-screen w-screen flex justify-center items-center bg-white dark:bg-neutral-900"
+      className="h-screen w-screen flex justify-center items-center bg-white dark:bg-black"
       initial={{ opacity: 1 }}
       animate={{ opacity: 0 }}
       transition={{ duration: 1, ease: "easeInOut", delay: 2 }}

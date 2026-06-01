@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inconsolata.variable} dark`}>
-      <body className={`${inconsolata.className} font-mono bg-white dark:bg-neutral-900 overflow-hidden`}>
+      <body className={`${inconsolata.className} font-mono bg-white dark:bg-black overflow-hidden`}>
         <ThemeProvider>
           <LanguageProvider>
             {children}
