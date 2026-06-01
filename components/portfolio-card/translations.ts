@@ -2,6 +2,27 @@ export const translations = {
   fr: {
     projects: [
       {
+        name: "KOS KGQA Pipeline",
+        projects: "NL→SPARQL sur graphes de connaissances • FastAPI + ChromaDB + spaCy + React/Next.js",
+        year: "Projet académique, 2026.",
+        url: "https://github.com/Lip1200/kos-kgqa-pipeline",
+        web: "https://github.com/Lip1200/kos-kgqa-pipeline",
+      },
+      {
+        name: "Yalla",
+        projects: "Plateforme de suivi clinique et soutien social • Obésité & diabète • Contrôle granulaire du partage de données",
+        year: "Projet d'équipe, 2026.",
+        url: "https://github.com/Lip1200/yalla",
+        web: "https://github.com/Lip1200/yalla",
+      },
+      {
+        name: "MindMoodle",
+        projects: "Companion santé mentale pour étudiants • Application web",
+        year: "Projet académique, 2025.",
+        url: "https://github.com/Lip1200/mindmoodle",
+        web: "https://github.com/Lip1200/mindmoodle",
+      },
+      {
         name: "Kubernetes Online Boutique",
         projects: "Microservices e-commerce • Kubernetes + Helm + Docker • Go/Python/Node.js/C#/Java",
         year: "Projet académique, 2024.",
@@ -150,6 +171,27 @@ export const translations = {
   },
   en: {
     projects: [
+      {
+        name: "KOS KGQA Pipeline",
+        projects: "NL→SPARQL on knowledge graphs • FastAPI + ChromaDB + spaCy + React/Next.js",
+        year: "Academic project, 2026.",
+        url: "https://github.com/Lip1200/kos-kgqa-pipeline",
+        web: "https://github.com/Lip1200/kos-kgqa-pipeline",
+      },
+      {
+        name: "Yalla",
+        projects: "Clinical monitoring & social support platform • Obesity & diabetes • Fine-grained data-sharing controls",
+        year: "Team project, 2026.",
+        url: "https://github.com/Lip1200/yalla",
+        web: "https://github.com/Lip1200/yalla",
+      },
+      {
+        name: "MindMoodle",
+        projects: "Mental health companion for students • Web application",
+        year: "Academic project, 2025.",
+        url: "https://github.com/Lip1200/mindmoodle",
+        web: "https://github.com/Lip1200/mindmoodle",
+      },
       {
         name: "Kubernetes Online Boutique",
         projects: "E-commerce microservices • Kubernetes + Helm + Docker • Go/Python/Node.js/C#/Java",
