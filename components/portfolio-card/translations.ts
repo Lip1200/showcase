@@ -76,10 +76,10 @@ export const translations = {
           description: "Formation avancée en intelligence artificielle et machine learning"
         },
         {
-          title: "Systèmes d'Information et Science des Services",
-          company: "UNIGE",
-          period: "2022 - 2025",
-          description: "Développement d'applications et gestion de projets"
+          title: "Master en Systèmes et Services Numériques",
+          company: "CUI - UNIGE",
+          period: "2025 - Présent",
+          description: "En cours de finalisation — IA, services distribués, développement logiciel"
         },
         {
           title: "Éducateur spécialisé",
@@ -225,10 +225,10 @@ export const translations = {
           description: "Advanced training in artificial intelligence and machine learning"
         },
         {
-          title: "Information Systems and Service Science",
-          company: "UNIGE",
-          period: "2022 - 2025",
-          description: "Application development and project management"
+          title: "Master in Digital Systems and Services",
+          company: "CUI - UNIGE",
+          period: "2025 - Present",
+          description: "Currently completing — AI, distributed services, software engineering"
         },
         {
           title: "Special Education Professional",

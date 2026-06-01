@@ -1,5 +1,33 @@
 export const projects = [
   {
+    name: "KOS KGQA Pipeline",
+    projects: "NL→SPARQL sur graphes de connaissances • FastAPI + ChromaDB + spaCy + React/Next.js",
+    year: "Projet académique, 2026.",
+    url: "https://github.com/Lip1200/kos-kgqa-pipeline",
+    web: "https://github.com/Lip1200/kos-kgqa-pipeline",
+  },
+  {
+    name: "Yalla",
+    projects: "Plateforme de suivi clinique et soutien social • Obésité & diabète • Contrôle granulaire du partage de données",
+    year: "Projet d'équipe, 2026.",
+    url: "https://github.com/Lip1200/yalla",
+    web: "https://github.com/Lip1200/yalla",
+  },
+  {
+    name: "MindMoodle",
+    projects: "Companion santé mentale pour étudiants • Application web",
+    year: "Projet académique, 2025.",
+    url: "https://github.com/Lip1200/mindmoodle",
+    web: "https://github.com/Lip1200/mindmoodle",
+  },
+  {
+    name: "NL2SPARQL Calvin",
+    projects: "Conversion automatique NL→SPARQL en français • Graphes de connaissances historiques",
+    year: "Projet académique, 2025.",
+    url: "https://github.com/Lip1200/nl2sparql_calvin",
+    web: "https://github.com/Lip1200/nl2sparql_calvin",
+  },
+  {
     name: "Kubernetes Online Boutique",
     projects: "E-commerce microservices • Kubernetes + Helm + Docker • Go/Python/Node.js/C#/Java",
     year: "Projet académique, 2024.",
@@ -68,10 +96,10 @@ export const personalInfo = {
       description: "Formation avancée en intelligence artificielle et machine learning"
     },
     {
-      title: "Systèmes d'Information et Science des Services",
-      company: "UNIGE",
-      period: "2022 - 2025",
-      description: "Développement d'applications et gestion de projets"
+      title: "Master en Systèmes et Services Numériques",
+      company: "CUI - UNIGE",
+      period: "2025 - Présent",
+      description: "En cours de finalisation — IA, services distribués, développement logiciel"
     },
     {
       title: "Éducateur spécialisé",

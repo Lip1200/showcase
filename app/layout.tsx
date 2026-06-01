@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Inconsolata } from "next/font/google";
+import { Inconsolata } from "next/font/google";
 import "./globals.css";
 import React from "react";
 import { ThemeProvider } from "../components/portfolio-card/ThemeProvider";
 import { LanguageProvider } from "../components/portfolio-card/LanguageProvider";
 
-
-const inter = Inter({ subsets: ["latin"] });
-const inconsolata = Inconsolata({ 
+const inconsolata = Inconsolata({
   subsets: ["latin"],
   weight: ["200", "400", "700", "900"],
   variable: "--font-inconsolata"
@@ -25,13 +23,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inconsolata.variable} dark`}>
-      <body className={`${inter.className} bg-neutral-950 text-neutral-200 overflow-hidden`}>
+      <body className={`${inconsolata.className} font-mono bg-white dark:bg-neutral-900 overflow-hidden`}>
         <ThemeProvider>
           <LanguageProvider>
             {children}
           </LanguageProvider>
         </ThemeProvider>
-
       </body>
     </html>
   );

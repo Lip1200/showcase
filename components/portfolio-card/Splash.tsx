@@ -34,13 +34,13 @@ const Splash = () => {
   if (!show) return null;
 
   return (
-    <motion.div 
-      className="h-screen w-screen flex justify-center items-center bg-main"
+    <motion.div
+      className="h-screen w-screen flex justify-center items-center bg-white dark:bg-neutral-900"
       initial={{ opacity: 1 }}
       animate={{ opacity: 0 }}
       transition={{ duration: 1, ease: "easeInOut", delay: 2 }}
     >
-      <h1 className="text-2xl text-center text-primary flex font-mono">
+      <h1 className="text-2xl text-center text-black dark:text-white flex font-mono">
         <span>{displayText}</span>
         <span className="ml-2">portfolio</span>
       </h1>
