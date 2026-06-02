@@ -2,6 +2,13 @@ export const translations = {
   fr: {
     projects: [
       {
+        name: "Thérapeute de Poche",
+        projects: "Prix du Jury — Hackathon HUG 2026 • Plateforme de réhabilitation physiothérapeutique • Next.js + FastAPI + Supabase",
+        year: "Hackathon, 2026.",
+        url: "https://github.com/Lip1200/pocket-therapist",
+        web: "https://github.com/Lip1200/pocket-therapist",
+      },
+      {
         name: "KOS KGQA Pipeline",
         projects: "NL→SPARQL sur graphes de connaissances • FastAPI + ChromaDB + spaCy + React/Next.js",
         year: "Projet académique, 2026.",
@@ -181,6 +188,13 @@ export const translations = {
   },
   en: {
     projects: [
+      {
+        name: "Thérapeute de Poche",
+        projects: "Jury Prize — Hackathon HUG 2026 • Physiotherapy rehabilitation platform • Next.js + FastAPI + Supabase",
+        year: "Hackathon, 2026.",
+        url: "https://github.com/Lip1200/pocket-therapist",
+        web: "https://github.com/Lip1200/pocket-therapist",
+      },
       {
         name: "KOS KGQA Pipeline",
         projects: "NL→SPARQL on knowledge graphs • FastAPI + ChromaDB + spaCy + React/Next.js",
