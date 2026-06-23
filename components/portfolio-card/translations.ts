@@ -86,8 +86,8 @@ export const translations = {
       github: "https://github.com/Lip1200",
       gitlab: "https://gitlab.unige.ch/Filipe.Ramos",
       linkedin: "https://www.linkedin.com/in/filipe-lip",
-      description: "Spécialiste IT et développeur full-stack.",
-      longDescription: `Après plus de dix ans dans l'éducation spécialisée, je mets au service du développement logiciel un leadership éprouvé, une communication claire et une réelle empathie des usages. Je finalise actuellement un Master en Systèmes et Services Numériques au CUI (UNIGE) et je suis certifié IBM AI Engineer. Je travaille sur le développement de bout en bout, l'automatisation des déploiements et l'IA mise en pratique.`,
+      description: "Développeur full-stack basé à Genève.",
+      longDescription: `Genevois de cœur, j'ai passé plus de dix ans à accompagner des personnes en situation de vulnérabilité avant de basculer dans le code. Ce n'est pas un accident de parcours, cette première carrière m'a appris à comprendre les vrais besoins, à parler aussi bien avec un médecin qu'avec un architecte système, et à voir comment les pièces d'un système s'articulent au service de personnes réelles. Je finalise aujourd'hui un Master en Systèmes et Services Numériques à l'UNIGE et suis certifié IBM AI Engineer.`,
       skills: {
         frontend: ["HTML5", "CSS3", "JavaScript", "TypeScript", "React", "Next.js", "TailwindCSS"],
         backend: ["C","Python", "Java", "Flask", "Node.js", "MySQL", "GraphQL", "SQLAlchemy"],
@@ -161,12 +161,12 @@ export const translations = {
       tools: "Outils"
     },
     messages: {
-      primaryTechs: "Technologies principales : Python, TypeScript, Flask/FastAPI, SQL, Docker, CI/CD, Kubernetes, C.",
-      expandingInto: "En apprentissage : Rust pour des services performants et des outils système — j'apprends vite et suis preneur de mentorat/travail en binôme, tout en apportant de la valeur immédiatement sur mes technologies cœur.",
-      lookingForPosition: "Je souhaite rejoindre une équipe où je peux prendre en charge des services de A à Z — conception, développement, conteneurisation, déploiement et supervision — et renforcer la fiabilité des plateformes ainsi que des fonctionnalités IA.",
-      motivators: "Ce qui me motive : curiosité, sens du travail bien fait, utilité concrète.",
-      goal: "Mon objectif : livrer des logiciels fiables et des produits d'IA qui servent vraiment les utilisateurs.",
-      workTogether: "Ouvert aux postes de développeur full-stack, DevOps ou ingénieur IA (une équipe intéressée par Rust est un plus).",
+      primaryTechs: "Je m'oriente vers les pratiques DevSecOps : sécurité dans le pipeline, déploiement fiable, infrastructure as code. J'aime les langages proches de la machine parce que j'aime comprendre où vont les choses, comment la mémoire est gérée, ce qui se passe vraiment sous le capot. C, Python, TypeScript, Docker, Kubernetes, SQL sont mes outils quotidiens, mais je peux monter en compétence sur n'importe quelle stack.",
+      expandingInto: "J'apprends vite, surtout sur le terrain. Une nouvelle technologie, un contexte inconnu, c'est précisément ce qui me motive. Je m'adapte à la dynamique d'une équipe, aussi bien en autonomie complète qu'en collaboration serrée.",
+      lookingForPosition: "Ce qui prime pour moi, c'est le projet et les gens. J'ai un penchant pour les projets à fort impact, notamment en santé, et je pourrais me plaire dans n'importe quel secteur où l'équipe vise l'excellence : haute horlogerie, finance, ou autre.",
+      motivators: "En dehors du code, je pratique la boxe, le ski de randonnée et la course à pied. J'ai besoin de me dépenser, ça entretient la rigueur. Le temps avec ma famille et mes amis fait aussi partie de mon équilibre.",
+      goal: "Mon objectif : construire des systèmes fiables et sécurisés, et contribuer à des produits qui améliorent vraiment la vie des gens.",
+      workTogether: "Disponible selon les opportunités, flexible sur le format. Ouvert aux postes DevOps/DevSecOps, AI Engineering ou Full-Stack.",
       whatsNext: "What's next?"
     },
     contact: {
@@ -273,8 +273,8 @@ export const translations = {
       github: "https://github.com/Lip1200",
       gitlab: "https://gitlab.unige.ch/Filipe.Ramos",
       linkedin: "https://www.linkedin.com/in/filipe-lip",
-      description: "IT Specialist and full-stack developer.",
-      longDescription: `After 10+ years in special education, I bring proven leadership, communication, and stakeholder empathy to engineering. I am currently finishing a Master's in Digital Systems and Services at CUI (UNIGE) and hold an IBM AI Engineer certification. I focus on full-stack delivery, deployment automation, and applied AI.`,
+      description: "Full-stack developer based in Geneva.",
+      longDescription: `A Genevan at heart, I spent over a decade supporting people in vulnerable situations before making the switch to code. It wasn't a detour, it was a foundation. That first career taught me to understand real needs, speak the language of clinicians as naturally as that of system architects, and see how the pieces of a system connect in service of real people. I'm finishing a Master's in Digital Systems and Services at UNIGE and hold an IBM AI Engineer certification.`,
       skills: {
         frontend: ["HTML5", "CSS3", "JavaScript", "TypeScript", "React", "Next.js", "TailwindCSS"],
         backend: ["C","Python", "Flask", "Node.js", "MySQL", "GraphQL", "SQLAlchemy"],
@@ -348,12 +348,12 @@ export const translations = {
       tools: "Tools"
     },
     messages: {
-      primaryTechs: "Primary techs: Python, TypeScript, Flask/FastAPI, SQL, Docker, CI/CD, Kubernetes, C.",
-      expandingInto: "Expanding into: Rust for high-performance services and tooling — I ramp fast and welcome pairing/mentorship while contributing immediately in my core stack.",
-      lookingForPosition: "I'm looking to join a team where I can own services end-to-end—design, build, containerize, deploy, and monitor—and strengthen platform reliability and ML-powered features.",
-      motivators: "Motivated by curiosity, craft, and meaningful outcomes.",
-      goal: "Goal: ship reliable software and AI-driven products that matter.",
-      workTogether: "Open to Full-Stack, DevOps, and AI Engineering roles (Rust-friendly teams a plus).",
+      primaryTechs: "I'm moving toward DevSecOps practices: security in the pipeline, reliable delivery, infrastructure as code. I like languages close to the machine because I like knowing where things actually go, how memory is managed, what happens under the hood. C, Python, TypeScript, Docker, Kubernetes, SQL are my daily tools, but I can get up to speed on any stack.",
+      expandingInto: "I learn fast, especially hands-on. A new technology, an unfamiliar context, that's precisely what drives me. I adapt to team dynamics naturally, whether working autonomously or in close collaboration.",
+      lookingForPosition: "What matters to me is the project and the people. I have a preference for high-impact work, particularly in healthcare, but I could thrive in any environment where the team is chasing excellence: watchmaking, finance, or beyond.",
+      motivators: "Outside of code, I box, ski tour, and run. I need to move, it keeps the discipline sharp. Time with family and friends is part of the balance too.",
+      goal: "Goal: build reliable, secure systems and contribute to products that genuinely improve people's lives.",
+      workTogether: "Available depending on the opportunity, flexible on format. Open to DevOps/DevSecOps, AI Engineering, and Full-Stack roles.",
       whatsNext: "What's next?"
     },
     contact: {
