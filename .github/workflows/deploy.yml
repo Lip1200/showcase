@@ -4,15 +4,18 @@ on:
   push:
     branches: [ main ]
 
+permissions:
+  contents: read
+
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
       - name: Use Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: 24
 
@@ -34,14 +37,17 @@ jobs:
       - name: SFTP upload
         env:
           SSHPASS: ${{ secrets.DEPLOY_KEY_PASS }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
         run: |
           sudo apt-get install -y sshpass
-          echo "put deploy.tar.gz ${{ secrets.DEPLOY_PATH }}/deploy.tar.gz" | \
+          echo "put deploy.tar.gz $DEPLOY_PATH/deploy.tar.gz" | \
             sshpass -e sftp -o StrictHostKeyChecking=no \
-            ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}
+            "$DEPLOY_USER@$DEPLOY_HOST"
 
       - name: Extract and install
-        uses: appleboy/ssh-action@v1.2.0
+        uses: appleboy/ssh-action@7eaf76671a0d7eec5d98ee897acda4f968735a17 # v1.2.0
         env:
           CONTACT_EMAIL: ${{ secrets.CONTACT_EMAIL }}
           SMTP_HOST: ${{ secrets.SMTP_HOST }}
@@ -49,15 +55,16 @@ jobs:
           SMTP_USER: ${{ secrets.SMTP_USER }}
           SMTP_PASS: ${{ secrets.SMTP_PASS }}
           SMTP_SECURE: ${{ secrets.SMTP_SECURE }}
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
         with:
           host:     ${{ secrets.DEPLOY_HOST }}
           username: ${{ secrets.DEPLOY_USER }}
           password: ${{ secrets.DEPLOY_KEY_PASS }}
           port: 22
-          envs: CONTACT_EMAIL,SMTP_HOST,SMTP_PORT,SMTP_USER,SMTP_PASS,SMTP_SECURE
+          envs: CONTACT_EMAIL,SMTP_HOST,SMTP_PORT,SMTP_USER,SMTP_PASS,SMTP_SECURE,DEPLOY_PATH
           script: |
             set -e
-            cd "${{ secrets.DEPLOY_PATH }}"
+            cd "$DEPLOY_PATH"
             # Preserve old static chunks so cached browsers don't get 404s
             if [ -d .next/static ]; then
               cp -r .next/static /tmp/next_static_backup
